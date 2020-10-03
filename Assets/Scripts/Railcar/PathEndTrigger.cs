@@ -1,12 +1,8 @@
 ﻿using UnityEngine;
-using PathCreation;
+using System;
+using System.Collections.Generic;
 
+[Serializable]
 public class PathEndTrigger : MonoBehaviour{
-    public enum PathWay {
-        Start,
-        End
-    }
-
-    public PathCreator _path;
-    public PathWay _pathWay = PathWay.Start;
+    public List<PathTile> paths = new List<PathTile>();
 }
