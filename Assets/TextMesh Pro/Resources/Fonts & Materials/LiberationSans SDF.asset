@@ -28,7 +28,10 @@ Material:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     - _CullMode: 0
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -72,7 +75,10 @@ Material:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_BuildTextureStacks: []
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -96,7 +102,11 @@ MonoBehaviour:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   materialHashCode: 198912371
+=======
+  materialHashCode: -1183942120
+>>>>>>> Stashed changes
 =======
   materialHashCode: -1183942120
 >>>>>>> Stashed changes
@@ -4640,7 +4650,10 @@ MonoBehaviour:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_IsMultiAtlasTexturesEnabled: 0
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -7840,6 +7853,7 @@ Texture2D:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_MipsStripped: 0
   m_TextureFormat: 1
   m_MipCount: 1
@@ -7852,11 +7866,14 @@ Texture2D:
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   m_TextureFormat: 1
   m_MipCount: 1
   m_IsReadable: 0
   m_StreamingMipmaps: 0
   m_StreamingMipmapsPriority: -92
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
@@ -7865,6 +7882,8 @@ Texture2D:
   m_IsReadable: 0
   m_StreamingMipmaps: 0
   m_StreamingMipmapsPriority: -92
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -7887,7 +7906,10 @@ Texture2D:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     serializedVersion: 2
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
