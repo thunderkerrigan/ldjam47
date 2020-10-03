@@ -28,22 +28,13 @@ public class Connector : MonoBehaviour
 
     private void OnUpdateAccess(PositionEnum access)
     {
-        if ((parentRail.openDirection & direction) == direction)
-        {
-            _renderer.material = _testMaterial;
-            return;
-        }
-
-        if (access != PositionEnum.None)
-        {
-            Debug.Log("receive position!"+ access + " for " + parentRail.coordinate.Row + " ," +parentRail.coordinate.Column);
-        }
         if ((access & direction) == direction)
         {
             _renderer.material = _openMaterial;
         }
         else
         {
+            // _renderer.material = null;
             _renderer.material = _closedMaterial;
         }
     }

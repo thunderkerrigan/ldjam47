@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 747122443}
   m_Layer: 0
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: Grid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,8 +258,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c786b13b4d75843a4d0cfc9c6ad115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EmptyRailItem: {fileID: 2035724513994073355, guid: bdfb9b7201c40ec46846ad87876a3420,
-    type: 3}
+  gridSize: 10
+  InstantiableRails:
+  - {fileID: 2035724513994073355, guid: bdfb9b7201c40ec46846ad87876a3420, type: 3}
+  - {fileID: 2035724513994073355, guid: 6e39c9221d932d5498d2f57be3328f23, type: 3}
+  - {fileID: 2035724513994073355, guid: 9e78f18d77b55094d8785523a4cb5f58, type: 3}
+  - {fileID: 2035724513994073355, guid: 6e62f36b43c4df14b8323c08760691fb, type: 3}
+  - {fileID: 2035724513994073355, guid: 0861dcb966d63f644b2eb6c498e1fb54, type: 3}
+  - {fileID: 2035724513994073355, guid: fc0805878ae2075498f15e54a56b7dc6, type: 3}
+  - {fileID: 2035724513994073355, guid: 5003e13bf989dc644b04242086e3925a, type: 3}
 --- !u!1 &812191686
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,3 +425,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae9e103255bd4a44a35c35f4ce0ee2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedRail: {fileID: 0}
+  shadowRail: {fileID: 0}

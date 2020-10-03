@@ -16,13 +16,14 @@ public enum PositionEnum
 public class GridManager : MonoBehaviour
 {
 
-    public Rail EmptyRailItem;
+    public int gridSize = 10;
+    public List<Rail> InstantiableRails;
     private List<List<Rail>> gridItems;
     
     // Start is called before the first frame update
     void Start()
     {
-        gridItems = new List<List<Rail>>(10);
+        gridItems = new List<List<Rail>>(gridSize);
         InitGrid();
     }
 
@@ -38,37 +39,51 @@ public class GridManager : MonoBehaviour
     {
         ClearGrid();
         Vector3 currentPosition = new Vector3();
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < gridSize; i++)
         {
             var newRow = new List<Rail>();
-            for (int j = 0; j < 10; j++)
+            for (int j = 0; j < gridSize; j++)
             {
-                var newRail = Instantiate(EmptyRailItem, currentPosition, Quaternion.identity);
-                newRail.coordinate = new Coordinate(i,j);
-                newRail.OnRequestOpenRoutesHandler += FetchNeighborRails;
-                newRail.SetText("row:"+i + " ; col: " + j);
-                newRow.Add(newRail);
+                var nextOrientation = PositionEnum.None;
                 if (i == 5 && j == 6)
                 {
-                    newRail.openDirection = PositionEnum.Down | PositionEnum.Right;
+                    nextOrientation = PositionEnum.Down | PositionEnum.Right;
                 }
                 
                 if (i == 3 && j == 2)
                 {
-                   newRail.openDirection = PositionEnum.Top | PositionEnum.Right;
+                    nextOrientation = PositionEnum.Top | PositionEnum.Right;
                 }
                 
                 if (i == 4 && j == 4)
                 {
                     /*newRail.openDirection = PositionEnum.Top;*/
-                    newRail.openDirection = PositionEnum.Top | PositionEnum.Right | PositionEnum.Down | PositionEnum.Left;
+                    nextOrientation = PositionEnum.Top | PositionEnum.Down;
                 }
+                var noneRail = filterSinglePrefabsForOrientation(nextOrientation);
+                var newRail = Instantiate(noneRail, currentPosition, Quaternion.identity);
+                newRail.openDirection = nextOrientation;
+                newRail.coordinate = new Coordinate(i,j);
+                newRail.OnRequestOpenRoutesHandler += FetchNeighborRails;
+                newRail.SetText("row:"+i + " ; col: " + j);
+                newRow.Add(newRail);
+                
                 currentPosition += Vector3.right;
             }
             gridItems.Add(newRow);
             currentPosition.x= 0;
             currentPosition += Vector3.back;
         }
+    }
+
+    public Rail filterSinglePrefabsForOrientation(PositionEnum orientation)
+    {
+        return InstantiableRails.Find((rail => (rail.openDirection & orientation) == orientation));
+    }
+    
+    public List<Rail> filterPrefabsForOrientation(PositionEnum orientation)
+    {
+        return InstantiableRails.FindAll((rail => (rail.openDirection & orientation) == orientation));
     }
 
     private PositionEnum FetchNeighborRails(Coordinate coordinate)
@@ -142,7 +157,7 @@ public class GridManager : MonoBehaviour
                 Destroy(item);
             }
         }
-        gridItems = new List<List<Rail>>(10);
+        gridItems = new List<List<Rail>>(gridSize);
     }
     
 }
