@@ -21,9 +21,28 @@ public class MouseController : MonoBehaviour
         
     }
 
+    private void GenerateShadowRail()
+    {
+        if (shadowRail)
+        {
+            DestroyImmediate(shadowRail.gameObject);
+        }
+
+        if (buildableRails.Count > 0)
+        {
+            var prefab = buildableRails[railIndex];
+            shadowRail = Instantiate(prefab, selectedRail.transform.position+Vector3.up, Quaternion.identity);
+        }
+    }
+
     void Update()
     {
-
+        if (shadowRail && Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("left clicked!");
+            _gridManager.ConstructRail(buildableRails[railIndex], selectedRail.coordinate);
+            Destroy(shadowRail.gameObject);
+        }
         if (Input.mouseScrollDelta.y != 0)
         {
             railIndex += Mathf.RoundToInt(Input.mouseScrollDelta.y);
@@ -31,11 +50,12 @@ public class MouseController : MonoBehaviour
             {
                 railIndex = buildableRails.Count - 1;
             }
-            if ( railIndex > buildableRails.Count)
+            if ( railIndex >= buildableRails.Count)
             {
                 railIndex = 0;
             }
             Debug.Log("new index shadow: "+railIndex);
+            GenerateShadowRail();
         }
         
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -44,7 +64,7 @@ public class MouseController : MonoBehaviour
         {
             var selectedObject = hitData.transform.gameObject;
             var rail = selectedObject.GetComponent<Rail>();
-            if (rail)
+            if (rail && rail != shadowRail)
             {
 
                 if (!selectedRail)
@@ -54,15 +74,29 @@ public class MouseController : MonoBehaviour
                 }
                 else if (selectedRail  && (selectedRail.coordinate.Row != rail.coordinate.Row || selectedRail.coordinate.Column != rail.coordinate.Column))
                 {
-                    buildableRails = _gridManager.filterPrefabsForOrientation(rail.GetOpenRoutes());
+                    if (shadowRail)
+                    {
+                        Destroy(shadowRail.gameObject);
+                    }
+                    var availablePosition = rail.GetOpenRoutes();
+                    buildableRails = _gridManager.filterPrefabsForOrientation(availablePosition^ PositionEnum.None);
                     railIndex = 0;
                     selectedRail.isSelected = false;
                     selectedRail = rail;
                     if (selectedRail.isBuildable)
                     {
                         selectedRail.isSelected = true;
+                        
+                        if (availablePosition != PositionEnum.None)
+                        {
+                            GenerateShadowRail();
+                        }
+                        else
+                        {
+                            buildableRails = new List<Rail>();
+                        }
                     }
-                   
+
                     
                 }
                 
