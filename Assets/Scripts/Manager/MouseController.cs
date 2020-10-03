@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class MouseController : MonoBehaviour
 {
     public Rail selectedRail;
     Ray ray;
     RaycastHit hitData;
+
 
     void Update()
     {
@@ -23,7 +25,7 @@ public class MouseController : MonoBehaviour
                     selectedRail = rail;
                     Debug.Log("first selected position: ");  
                 }
-                else if (selectedRail  && (selectedRail.position.Row != rail.position.Row || selectedRail.position.Column != rail.position.Column))
+                else if (selectedRail  && (selectedRail.coordinate.Row != rail.coordinate.Row || selectedRail.coordinate.Column != rail.coordinate.Column))
                 {
                     selectedRail.isSelected = false;
                     selectedRail = rail;
