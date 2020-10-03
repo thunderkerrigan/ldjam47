@@ -23,7 +23,10 @@ public class Connector : MonoBehaviour
 
     private void OnDestroy()
     {
-        parentRail.OnReceiveOpenRouteHandler -= OnUpdateAccess;
+        if (parentRail)
+        {
+            parentRail.OnReceiveOpenRouteHandler -= OnUpdateAccess;
+        }
     }
 
     private void OnUpdateAccess(PositionEnum access)

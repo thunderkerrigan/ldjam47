@@ -20,7 +20,10 @@ public class SelectionTile : MonoBehaviour
 
     private void OnDestroy()
     {
-        ParentRail.OnReceiveOpenRouteHandler -= SetMaterial;
+        if (ParentRail)
+        {
+            ParentRail.OnReceiveOpenRouteHandler -= SetMaterial;
+        }
     }
 
     private void SetMaterial(PositionEnum access)
