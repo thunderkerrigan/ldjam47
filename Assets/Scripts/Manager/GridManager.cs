@@ -65,7 +65,9 @@ public class GridManager : MonoBehaviour
                 newRail.openDirection = nextOrientation;
                 newRail.coordinate = new Coordinate(i,j);
                 newRail.OnRequestOpenRoutesHandler += FetchNeighborRails;
-                newRail.SetText("row:"+i + " ; col: " + j);
+                // newRail.SetText("row:"+i + " ; col: " + j);
+                 newRail.SetText("");
+
                 newRow.Add(newRail);
                 
                 currentPosition += Vector3.right;
@@ -142,7 +144,7 @@ public class GridManager : MonoBehaviour
         {
             var gridPosition = targetRail.gameObject.transform.position;
             targetRail.OnRequestOpenRoutesHandler -= FetchNeighborRails;
-            Destroy(targetRail);
+            Destroy(targetRail.gameObject);
             var newRail = Instantiate(requestedRail, gridPosition, Quaternion.identity);
             gridItems[position.Row][position.Column] = newRail;
         }

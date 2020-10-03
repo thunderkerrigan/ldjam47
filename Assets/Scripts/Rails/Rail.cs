@@ -74,9 +74,10 @@ public class Rail : MonoBehaviour
            if (OnReceiveOpenRouteHandler != null)
            {
                OnReceiveOpenRouteHandler(openAccess);
+               return openAccess;
            }
         }
 
         return PositionEnum.None;
-    } 
+    }
 }
