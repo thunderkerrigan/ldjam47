@@ -12,7 +12,7 @@ public class MouseController : MonoBehaviour
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out hitData, 1000) && Input.GetMouseButtonDown(0))
+        if (Physics.Raycast(ray, out hitData, 1000))
         {
             var selectedObject = hitData.transform.gameObject;
             var rail = selectedObject.GetComponent<Rail>();
