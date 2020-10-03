@@ -15,6 +15,6 @@ MonoBehaviour:
   welcomeScreenVersion: '1.9.0 '
   playmakerVersion: 
   showWelcomeScreen: 1
-  showUpgradeGuide: 1
-  lastAutoUpdateSignature: 2020.1.7f1__D:/Projects/ldjam47/Assets__0.0.0.0
+  showUpgradeGuide: 0
+  lastAutoUpdateSignature: 2020.1.7f1__C:/Users/florian.boulet/Desktop/Perso/Unity/ldjam47/Assets__0.0.0.0
   useLegacyNetworking: 0

@@ -1,0 +1,23 @@
+{
+  "name": "com.nectunia.propertyinterface",
+  "version": "0.9.0",
+  "displayName": "Property Interface",
+  "description": "This package allow you to easly create Property to your GameObject. You can then used these Properties to what ever you want with the provide code library.",
+  "unity": "2018.3",
+  "keywords": [
+    "Property",
+    "Interface",
+    "PropertyInterface",
+    "Property Interface",
+    "Feature",
+    "Features",
+    "Characteristic",
+    "Characteristics",
+    "Nectunia"
+  ],
+  "author": {
+    "name": "Nectunia",
+    "email": "contact.nectunia@gmail.com"
+  },
+  "type": "library"
+}
