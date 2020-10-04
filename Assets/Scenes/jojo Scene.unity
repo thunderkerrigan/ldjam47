@@ -291,6 +291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 747122442}
   - component: {fileID: 747122443}
+  - component: {fileID: 747122444}
   m_Layer: 0
   m_Name: Grid
   m_TagString: GridManager
@@ -333,6 +334,31 @@ MonoBehaviour:
   - {fileID: 2035724513994073355, guid: 0fca5a7c21880e343a8f76dd3f5d7513, type: 3}
   - {fileID: 2035724513994073355, guid: cf2af6c305a872f42a955a93162632e0, type: 3}
   - {fileID: 2035724513994073355, guid: 01ae0c45c5673854f8db3e7265f6a34d, type: 3}
+  _spawnManager: {fileID: 747122444}
+  SpawnRails:
+  - {fileID: 8533792689512248991, guid: ab32c555de8ecd2489d011db0ea92d8b, type: 3}
+  - {fileID: 1201913373293287739, guid: d74f6d3bcdb69b8458b6ddfd266fdd52, type: 3}
+  - {fileID: 610745565089746546, guid: 91efa3082d59ee7469bd2673b65522f7, type: 3}
+  - {fileID: 5260091613229263770, guid: efd26ae3842d85e479d2059e61f876a4, type: 3}
+  _numberSpawnTile: 3
+--- !u!114 &747122444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747122441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706b254a437e8a842951abddd16bf4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnTimeSeconde: 5
+  _firstSpawnTimeSeconde: 5
+  _trainPrefabs:
+  - {fileID: 5991687195576547552, guid: 91916b5286cfebd4f899f45b5ce9d3c7, type: 3}
+  - {fileID: 5991687195576547552, guid: 20aad926842ca934fad9841b35018d32, type: 3}
+  - {fileID: 5991687195576547552, guid: db116bd19d19d6443946c26dc57d03ac, type: 3}
 --- !u!1 &807561217
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,7 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 375e9aa2dde836a49bc227c118d1d44c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTextField: {fileID: 1867720797}
+  timeTextField: {fileID: 0}
 --- !u!1 &812191686
 GameObject:
   m_ObjectHideFlags: 0
