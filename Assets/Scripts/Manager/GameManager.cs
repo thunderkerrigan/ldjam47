@@ -13,11 +13,18 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
 
     private Stopwatch _stopwatch = new Stopwatch();
-    
+    private bool isRunning = false;
     public event ChronoUpdateHandler OnChronoUpdate;
 
     void Start()
     {
+        
+    }
+
+
+    void StartGame()
+    {
+        isRunning = true;
         _stopwatch.Start();
     }
 

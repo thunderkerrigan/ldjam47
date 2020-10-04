@@ -17,6 +17,14 @@ public class UIManager : MonoBehaviour
         _manager.OnChronoUpdate += OnChronoUpdate;
     }
 
+    private void OnDestroy()
+    {
+        if ((_manager))
+        {
+            _manager.OnChronoUpdate -= OnChronoUpdate;
+        }
+    }
+
     private void OnChronoUpdate(TimeSpan span)
     {
         timeTextField.text= String.Format("{0:00}:{1:00}.{2:00}",
