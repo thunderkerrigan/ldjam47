@@ -39,10 +39,6 @@ public class MouseController : MonoBehaviour
     {
         if (shadowRail && Input.GetMouseButtonDown(0))
         {
-<<<<<<< HEAD
-=======
-            Debug.Log("left clicked!");
->>>>>>> master
             _gridManager.ConstructRail(buildableRails[railIndex], selectedRail.coordinate);
             Destroy(shadowRail.gameObject);
         }
@@ -57,10 +53,6 @@ public class MouseController : MonoBehaviour
             {
                 railIndex = 0;
             }
-<<<<<<< HEAD
-=======
-            Debug.Log("new index shadow: "+railIndex);
->>>>>>> master
             GenerateShadowRail();
         }
         
