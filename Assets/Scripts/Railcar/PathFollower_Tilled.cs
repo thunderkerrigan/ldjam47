@@ -29,7 +29,8 @@ public class PathFollower_Tilled : MonoBehaviour{
 
                 // Move the follower on the path
                 transform.position = _currentPath._pathCreator.path.GetPointAtDistance(_distanceTravelled, _endOfPathInstruction);
-                transform.rotation = _currentPath._pathCreator.path.GetRotationAtDistance(_distanceTravelled, _endOfPathInstruction);
+                Quaternion rotation = _currentPath._pathCreator.path.GetRotationAtDistance(_distanceTravelled, _endOfPathInstruction);
+                transform.rotation = new Quaternion(0, rotation.y, 0, rotation.w);
                 
                 // Rotate the follower depend of the way
                 if(_currentPath._pathWay != PathTile.PathWay.Start) {  transform.forward = -transform.forward; } 
@@ -39,6 +40,7 @@ public class PathFollower_Tilled : MonoBehaviour{
 
 	private void OnTriggerEnter (Collider other) {
 		PathEndTrigger pathEndTrigger = other.gameObject.GetComponent<PathEndTrigger>();
+        Debug.Log("Trigger " + other.name + " : " + pathEndTrigger.paths[0]._pathWay.ToString() );
 		
         if (pathEndTrigger != null && pathEndTrigger.paths.Count > 0) {
             bool currentPathExistsInTrigger = false;
