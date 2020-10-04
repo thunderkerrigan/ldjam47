@@ -79,6 +79,12 @@ public class Rail : MonoBehaviour
         };
     }
 
+    public Rail SelectRail()
+    {
+       //return CurrentState.HandleSelection();
+       return this;
+    }
+    
     public PositionEnum GetOpenRoutes()
     {
         if (OnRequestOpenRoutesHandler != null)
