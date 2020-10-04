@@ -7,6 +7,14 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
+
+public enum EnemyBehavior
+{
+    Buildable,
+    Constructed,
+    Shadow
+}
+
 [Serializable]
 public struct Coordinate
 {
@@ -29,13 +37,23 @@ public class Rail : MonoBehaviour
     public event ReceiveOpenRouteHandler OnReceiveOpenRouteHandler;
 
     public Coordinate coordinate;    
-    [SerializeField] private GameObject selectionText;
+    [SerializeField] public GameObject selectionText;
     [SerializeField] public List<Material> backgroundMaterials;
     public bool isSelected = false;
     public bool isBuildable = true;
     public PositionEnum openDirection = PositionEnum.None;
     public TextMeshPro textMesh;
     public MeshRenderer backgroundTile;
+
+    #region State
+
+    public readonly BuildableRailState BuildableState = new BuildableRailState();
+    public readonly ConstructedRailState ConstructedState = new ConstructedRailState();
+    public  readonly ShadowRailState ShadowState = new ShadowRailState();
+    
+    protected RailBaseState CurrentState;
+
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -52,18 +70,7 @@ public class Rail : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (selectionText.activeSelf != isSelected)
-        {
-            
-            selectionText.SetActive(isSelected);
-            /*if (openDirection != PositionEnum.None)
-            {
-                isSelected = true;
-                selectionText.SetActive(true);
-
-            }*/
-            GetOpenRoutes();
-        }
+        CurrentState.Update(this);
     }
 
     public PositionEnum GetOpenRoutes()

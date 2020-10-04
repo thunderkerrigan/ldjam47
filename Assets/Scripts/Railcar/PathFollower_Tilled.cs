@@ -30,7 +30,7 @@ public class PathFollower_Tilled : MonoBehaviour{
                 // Move the follower on the path
                 transform.position = _currentPath._pathCreator.path.GetPointAtDistance(_distanceTravelled, _endOfPathInstruction);
                 Quaternion rotation = _currentPath._pathCreator.path.GetRotationAtDistance(_distanceTravelled, _endOfPathInstruction);
-                transform.rotation = new Quaternion(0, rotation.y, 0, rotation.w);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime);
                 
                 // Rotate the follower depend of the way
                 if(_currentPath._pathWay != PathTile.PathWay.Start) {  transform.forward = -transform.forward; } 

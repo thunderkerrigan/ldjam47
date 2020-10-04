@@ -80,7 +80,8 @@ public class GridManager : MonoBehaviour
 
     public Rail filterSinglePrefabsForOrientation(PositionEnum orientation)
     {
-        return InstantiableRails.Find((rail => (rail.openDirection & orientation) == orientation));
+        return InstantiableRails.Find((rail => rail.openDirection == orientation));
+
     }
     
     public List<Rail> filterPrefabsForOrientation(PositionEnum orientation)
