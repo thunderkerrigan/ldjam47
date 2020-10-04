@@ -6,6 +6,8 @@ using UnityEngine;
 
 
 public delegate void ChronoUpdateHandler(TimeSpan span);
+//public Trains int;
+
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
