@@ -4,24 +4,26 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 
-
+[Flags]
 public enum PositionEnum
 {
-    Left,
-    Right,
-    Top,
-    Down
+    None = 0,
+    Left = 1,
+    Right=2,
+    Top=4,
+    Down=8
 }
 public class GridManager : MonoBehaviour
 {
 
-    public Rail EmptyRailItem;
+    public int gridSize = 10;
+    public List<Rail> InstantiableRails;
     private List<List<Rail>> gridItems;
     
     // Start is called before the first frame update
     void Start()
     {
-        gridItems = new List<List<Rail>>(10);
+        gridItems = new List<List<Rail>>(gridSize);
         InitGrid();
     }
 
@@ -37,46 +39,101 @@ public class GridManager : MonoBehaviour
     {
         ClearGrid();
         Vector3 currentPosition = new Vector3();
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < gridSize; i++)
         {
             var newRow = new List<Rail>();
-            for (int j = 0; j < 10; j++)
+            for (int j = 0; j < gridSize; j++)
             {
-                var newRail = Instantiate(EmptyRailItem, currentPosition, Quaternion.identity);
-                newRail.position = new Coordinate(i,j);
+                var nextOrientation = PositionEnum.None;
+                if (i == 5 && j == 6)
+                {
+                    nextOrientation = PositionEnum.Down | PositionEnum.Right;
+                }
+                
+                if (i == 3 && j == 2)
+                {
+                    nextOrientation = PositionEnum.Top | PositionEnum.Right;
+                }
+                
+                if (i == 4 && j == 4)
+                {
+                    /*newRail.openDirection = PositionEnum.Top;*/
+                    nextOrientation = PositionEnum.Top | PositionEnum.Down;
+                }
+                var noneRail = filterSinglePrefabsForOrientation(nextOrientation);
+                var newRail = Instantiate(noneRail, currentPosition, Quaternion.identity);
+                newRail.openDirection = nextOrientation;
+                newRail.coordinate = new Coordinate(i,j);
+                newRail.OnRequestOpenRoutesHandler += FetchNeighborRails;
+                // newRail.SetText("row:"+i + " ; col: " + j);
+                 newRail.SetText("");
+
                 newRow.Add(newRail);
+                
                 currentPosition += Vector3.right;
             }
             gridItems.Add(newRow);
-            currentPosition.x = 0;
+            currentPosition.x= 0;
             currentPosition += Vector3.back;
         }
     }
 
-    public Rail NextRail(Rail requestingRail, PositionEnum position)
+    public Rail filterSinglePrefabsForOrientation(PositionEnum orientation)
     {
-        var nextRailCoordinate = new Coordinate(requestingRail.position.Row, requestingRail.position.Column);
+        return InstantiableRails.Find((rail => (rail.openDirection & orientation) == orientation));
+    }
+    
+    public List<Rail> filterPrefabsForOrientation(PositionEnum orientation)
+    {
+        return InstantiableRails.FindAll((rail => (rail.openDirection & orientation) == orientation));
+    }
+
+    private PositionEnum FetchNeighborRails(Coordinate coordinate)
+    {
+        return NextRail(coordinate, PositionEnum.Top) | NextRail(coordinate, PositionEnum.Down) |
+               NextRail(coordinate, PositionEnum.Left) | NextRail(coordinate, PositionEnum.Right);
+    }
+
+    public PositionEnum NextRail(Coordinate coordinate, PositionEnum position)
+    {
+        var nextRailCoordinate = new Coordinate(coordinate.Row, coordinate.Column);
         switch (position)
         {
             case PositionEnum.Left:
-                nextRailCoordinate.Row -= 1;
+                nextRailCoordinate.Column += 1;
                 break;
             case PositionEnum.Right:
-                nextRailCoordinate.Row += 1;
-                break;
-            case PositionEnum.Top:
                 nextRailCoordinate.Column -= 1;
                 break;
+            case PositionEnum.Top:
+                nextRailCoordinate.Row += 1;
+                break;
             case PositionEnum.Down:
-                nextRailCoordinate.Column += 1;
+                nextRailCoordinate.Row -= 1;
                 break;
         }
 
-        if (nextRailCoordinate.Row >= 0 && nextRailCoordinate.Column <= 10 && nextRailCoordinate.Column >= 0 && nextRailCoordinate.Row <= 10)
+        if (nextRailCoordinate.Row >= 0 && nextRailCoordinate.Row < gridItems.Count && nextRailCoordinate.Column < gridItems[nextRailCoordinate.Row].Count && nextRailCoordinate.Column >= 0)
         {
-            return  gridItems[nextRailCoordinate.Row][nextRailCoordinate.Column];
+            var comparedDirections = gridItems[nextRailCoordinate.Row][nextRailCoordinate.Column].openDirection;
+            switch (position)
+            {
+                case PositionEnum.None:
+                    return comparedDirections;
+                case PositionEnum.Left:
+                    return (comparedDirections & PositionEnum.Left) == PositionEnum.Left ? PositionEnum.Right : PositionEnum.None;
+                case PositionEnum.Right:
+                    return (comparedDirections & PositionEnum.Right) == PositionEnum.Right ? PositionEnum.Left : PositionEnum.None;
+                case PositionEnum.Top:
+                    return (comparedDirections & PositionEnum.Top)== PositionEnum.Top ? PositionEnum.Down : PositionEnum.None;
+                case PositionEnum.Down:
+                    return (comparedDirections & PositionEnum.Down)== PositionEnum.Down ? PositionEnum.Top : PositionEnum.None;
+                default:
+                    return comparedDirections;
+            }
+
         }
-        return null;
+        return PositionEnum.None;
     }
     
     public void ConstructRail(Rail requestedRail, Coordinate position)
@@ -86,7 +143,8 @@ public class GridManager : MonoBehaviour
         if (targetRail.isBuildable)
         {
             var gridPosition = targetRail.gameObject.transform.position;
-            Destroy(targetRail);
+            targetRail.OnRequestOpenRoutesHandler -= FetchNeighborRails;
+            Destroy(targetRail.gameObject);
             var newRail = Instantiate(requestedRail, gridPosition, Quaternion.identity);
             gridItems[position.Row][position.Column] = newRail;
         }
@@ -101,7 +159,7 @@ public class GridManager : MonoBehaviour
                 Destroy(item);
             }
         }
-        gridItems = new List<List<Rail>>(10);
+        gridItems = new List<List<Rail>>(gridSize);
     }
     
 }
