@@ -1467,12 +1467,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21a862ad49966aa49bc134adea91d53e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _trainPrefab: {fileID: 5991687195576547552, guid: 20aad926842ca934fad9841b35018d32,
+  _defaultTrainPrefab: {fileID: 5991687195576547552, guid: 20aad926842ca934fad9841b35018d32,
     type: 3}
-  _trainSpeed: 0.5
+  _defaultTrainSpeed: 0.5
   _pathCreator: {fileID: 1443769563502741646}
-  _spawnTimeSeconde: 3
-  _firstSpawnTimeSeconde: 2
 --- !u!1 &8558673813098983734
 GameObject:
   m_ObjectHideFlags: 0
