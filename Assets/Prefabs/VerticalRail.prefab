@@ -645,7 +645,7 @@ GameObject:
   - component: {fileID: 2035724513994073355}
   - component: {fileID: 3460949591730744737}
   m_Layer: 0
-  m_Name: VerticalRail 1
+  m_Name: VerticalRail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -966,18 +966,18 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: -0.2887534, y: 0.16098797, z: -0.0001487732}
-      - {x: 0.50712836, y: 0.15566123, z: 0.0008277893}
-      - {x: -0.4478413, y: 0.15811837, z: -0.0001487732}
-      - {x: 0.7120606, y: 0.15874791, z: -0.0001487732}
+      - {x: -0.2887534, y: 0.16098797, z: 0}
+      - {x: 0.50712836, y: 0.15566123, z: 0}
+      - {x: -0.4478413, y: 0.15811837, z: 0}
+      - {x: 0.7120606, y: 0.15874791, z: 0}
       isClosed: 0
       space: 0
-      controlMode: 2
+      controlMode: 0
       autoControlLength: 0.3
       boundsUpToDate: 0
       bounds:
-        m_Center: {x: 0, y: 0, z: 0}
-        m_Extent: {x: 0, y: 0, z: 0}
+        m_Center: {x: 0.21165359, y: 0.15931079, z: 0}
+        m_Extent: {x: 0.500407, y: 0.0016771853, z: 0}
       perAnchorNormalsAngle:
       - 0
       - 0
