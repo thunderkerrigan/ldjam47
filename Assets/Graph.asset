@@ -338,8 +338,8 @@ MonoBehaviour:
   m_useUpdate: 0
   m_height: 104
   m_width: 236
-  m_x: -684
-  m_y: 300
+  m_x: -756
+  m_y: 432
   m_minimumInputSocketsCount: 1
   m_minimumOutputSocketsCount: 1
   m_graphId: 3f32228f-6018-438d-8fb1-5f30dfdcf2e5
@@ -372,11 +372,11 @@ MonoBehaviour:
       m_outputSocketId: ba7c7edd-8efb-463d-9830-78ddf6b605a4
     - m_inputConnectionPoint: {x: 202, y: 4}
       m_outputConnectionPoint: {x: 202, y: 4}
-      m_id: d995df56-c038-4229-a1b2-b2662d5050d2
+      m_id: ae286481-2835-4627-90ed-72ed40777a76
       m_inputNodeId: d3dd9a67-0071-4715-ab8d-9c263da45687
       m_inputSocketId: 42ae6a3d-65e4-4ff5-b038-b6c18365bb8a
-      m_outputNodeId: 04327179-269f-4666-aa8f-78ca929c3771
-      m_outputSocketId: 77af28b4-ed28-42f9-8719-2b2c965efb61
+      m_outputNodeId: 8051d28d-8b22-4d92-b6a0-4df586eba41a
+      m_outputSocketId: 60eb490d-568a-4856-9424-5efb2dcd0578
     m_connectionPoints:
     - {x: -2, y: 4}
     - {x: 202, y: 4}
@@ -398,10 +398,10 @@ MonoBehaviour:
   - m_connectionMode: 0
     m_connections:
     - m_inputConnectionPoint: {x: 202, y: 4}
-      m_outputConnectionPoint: {x: 202, y: 4}
-      m_id: c31de9d9-f97d-4c9a-a359-25af5dcecde6
-      m_inputNodeId: 8270e34d-a770-46a8-8b4d-cf3dacacab61
-      m_inputSocketId: ff5b78b6-b166-4773-a606-61e0a4cfa54a
+      m_outputConnectionPoint: {x: -2, y: 4}
+      m_id: dbbe3ed8-0510-4c8e-b869-86abd4a2482b
+      m_inputNodeId: 95252ad8-a10e-4497-a0d6-a6a16989bd6d
+      m_inputSocketId: de903c27-88ca-45d3-bb73-c8d691ec2279
       m_outputNodeId: d3dd9a67-0071-4715-ab8d-9c263da45687
       m_outputSocketId: 888a323e-1769-42ed-9a2b-845f9c08f0e5
     m_connectionPoints:
@@ -424,10 +424,10 @@ MonoBehaviour:
   - m_connectionMode: 0
     m_connections:
     - m_inputConnectionPoint: {x: 202, y: 4}
-      m_outputConnectionPoint: {x: 202, y: 4}
-      m_id: e16ee646-2f85-40d5-a447-21cfd14e8a04
-      m_inputNodeId: 5f3cf1f8-9781-4776-813e-db6c4192955e
-      m_inputSocketId: 4a376df7-28aa-4dfa-9990-2284e091e2bb
+      m_outputConnectionPoint: {x: -2, y: 4}
+      m_id: 4ab14f01-efff-4944-a5ef-93388d8d651e
+      m_inputNodeId: 95252ad8-a10e-4497-a0d6-a6a16989bd6d
+      m_inputSocketId: de903c27-88ca-45d3-bb73-c8d691ec2279
       m_outputNodeId: d3dd9a67-0071-4715-ab8d-9c263da45687
       m_outputSocketId: 1af4e52f-cba1-40a9-9881-26b387df13ad
     m_connectionPoints:
@@ -961,13 +961,6 @@ MonoBehaviour:
       m_inputSocketId: 4a376df7-28aa-4dfa-9990-2284e091e2bb
       m_outputNodeId: d3dd9a67-0071-4715-ab8d-9c263da45687
       m_outputSocketId: ed4ef39f-9ca7-4eec-9ae0-c4c1abe49a47
-    - m_inputConnectionPoint: {x: 202, y: 4}
-      m_outputConnectionPoint: {x: 202, y: 4}
-      m_id: e16ee646-2f85-40d5-a447-21cfd14e8a04
-      m_inputNodeId: 5f3cf1f8-9781-4776-813e-db6c4192955e
-      m_inputSocketId: 4a376df7-28aa-4dfa-9990-2284e091e2bb
-      m_outputNodeId: d3dd9a67-0071-4715-ab8d-9c263da45687
-      m_outputSocketId: 1af4e52f-cba1-40a9-9881-26b387df13ad
     m_connectionPoints:
     - {x: -2, y: 4}
     - {x: 202, y: 4}
@@ -1242,6 +1235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DebugMode: 0
   m_nodes:
+  - {fileID: 6151011920337498734}
   - {fileID: -4481564336450716430}
   - {fileID: -5936386002617992132}
   - {fileID: -2357751678194335868}
@@ -1253,15 +1247,14 @@ MonoBehaviour:
   - {fileID: 3146140840433928488}
   - {fileID: 4162053013435579894}
   - {fileID: -1508687097417621502}
-  - {fileID: -4705951702566813841}
   - {fileID: 3788700741171535551}
   - {fileID: 4717193216717827168}
-  - {fileID: 1475798677376801760}
+  - {fileID: 7557501994858499096}
   m_isSubGraph: 0
   m_version: 1
   m_description: 
   m_id: 3f32228f-6018-438d-8fb1-5f30dfdcf2e5
-  m_lastModified: 132462765319872515
+  m_lastModified: 132462787015773676
 --- !u!114 &1235898239253993740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1371,14 +1364,7 @@ MonoBehaviour:
   ErrorDuplicateNameFoundInGraph: 0
   m_inputSockets:
   - m_connectionMode: 1
-    m_connections:
-    - m_inputConnectionPoint: {x: 202, y: 4}
-      m_outputConnectionPoint: {x: 202, y: 4}
-      m_id: 4ead6dfa-4cb7-42a1-94ff-1447faff9e72
-      m_inputNodeId: 04327179-269f-4666-aa8f-78ca929c3771
-      m_inputSocketId: 0959495c-81a1-4588-a331-d1ffb1131bc1
-      m_outputNodeId: 8270e34d-a770-46a8-8b4d-cf3dacacab61
-      m_outputSocketId: 725814b3-1c0a-4854-bdbe-753cabc546bc
+    m_connections: []
     m_connectionPoints:
     - {x: -2, y: 4}
     - {x: 202, y: 4}
@@ -1822,13 +1808,13 @@ MonoBehaviour:
       m_inputSocketId: ff5b78b6-b166-4773-a606-61e0a4cfa54a
       m_outputNodeId: 2d1a4024-76eb-4714-9fa7-03a34c89e165
       m_outputSocketId: cb0c0eaa-dab5-475a-9844-c469937779b7
-    - m_inputConnectionPoint: {x: 202, y: 4}
+    - m_inputConnectionPoint: {x: -2, y: 4}
       m_outputConnectionPoint: {x: 202, y: 4}
-      m_id: c31de9d9-f97d-4c9a-a359-25af5dcecde6
+      m_id: 8f3a2681-9546-4669-9abc-e740acdf29aa
       m_inputNodeId: 8270e34d-a770-46a8-8b4d-cf3dacacab61
       m_inputSocketId: ff5b78b6-b166-4773-a606-61e0a4cfa54a
-      m_outputNodeId: d3dd9a67-0071-4715-ab8d-9c263da45687
-      m_outputSocketId: 888a323e-1769-42ed-9a2b-845f9c08f0e5
+      m_outputNodeId: 95252ad8-a10e-4497-a0d6-a6a16989bd6d
+      m_outputSocketId: 0a592297-9095-41ba-9f3f-8adb23097b41
     m_connectionPoints:
     - {x: -2, y: 4}
     - {x: 202, y: 4}
@@ -1851,9 +1837,9 @@ MonoBehaviour:
     m_connections:
     - m_inputConnectionPoint: {x: 202, y: 4}
       m_outputConnectionPoint: {x: 202, y: 4}
-      m_id: 4ead6dfa-4cb7-42a1-94ff-1447faff9e72
-      m_inputNodeId: 04327179-269f-4666-aa8f-78ca929c3771
-      m_inputSocketId: 0959495c-81a1-4588-a331-d1ffb1131bc1
+      m_id: 7e9d3a2b-b4e4-41c8-af09-976aa6638df9
+      m_inputNodeId: 8051d28d-8b22-4d92-b6a0-4df586eba41a
+      m_inputSocketId: 0ef7772e-03c2-4090-ac98-d4230a2df05b
       m_outputNodeId: 8270e34d-a770-46a8-8b4d-cf3dacacab61
       m_outputSocketId: 725814b3-1c0a-4854-bdbe-753cabc546bc
     m_connectionPoints:
@@ -1962,3 +1948,192 @@ MonoBehaviour:
   DrawerName: Unnamed
   CustomDrawerName: 0
   SwitchBackMode: 0
+--- !u!114 &6151011920337498734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd5abe2bf3947e29618205a5d533d57, type: 3}
+  m_Name: TimeScaleNode
+  m_EditorClassIdentifier: 
+  ErrorNodeNameIsEmpty: 0
+  ErrorDuplicateNameFoundInGraph: 0
+  m_inputSockets:
+  - m_connectionMode: 1
+    m_connections:
+    - m_inputConnectionPoint: {x: 202, y: 4}
+      m_outputConnectionPoint: {x: -2, y: 4}
+      m_id: dbbe3ed8-0510-4c8e-b869-86abd4a2482b
+      m_inputNodeId: 95252ad8-a10e-4497-a0d6-a6a16989bd6d
+      m_inputSocketId: de903c27-88ca-45d3-bb73-c8d691ec2279
+      m_outputNodeId: d3dd9a67-0071-4715-ab8d-9c263da45687
+      m_outputSocketId: 888a323e-1769-42ed-9a2b-845f9c08f0e5
+    - m_inputConnectionPoint: {x: 202, y: 4}
+      m_outputConnectionPoint: {x: -2, y: 4}
+      m_id: 4ab14f01-efff-4944-a5ef-93388d8d651e
+      m_inputNodeId: 95252ad8-a10e-4497-a0d6-a6a16989bd6d
+      m_inputSocketId: de903c27-88ca-45d3-bb73-c8d691ec2279
+      m_outputNodeId: d3dd9a67-0071-4715-ab8d-9c263da45687
+      m_outputSocketId: 1af4e52f-cba1-40a9-9881-26b387df13ad
+    m_connectionPoints:
+    - {x: -2, y: 4}
+    - {x: 202, y: 4}
+    m_direction: 0
+    m_canBeDeleted: 0
+    m_canBeReordered: 0
+    m_curveModifier: 0
+    m_height: 24
+    m_width: 216
+    m_x: 0
+    m_y: 38
+    m_id: de903c27-88ca-45d3-bb73-c8d691ec2279
+    m_nodeId: 95252ad8-a10e-4497-a0d6-a6a16989bd6d
+    m_socketName: InputSocket_0
+    m_value: '{}'
+    m_valueTypeQualifiedName: Doozy.Engine.Nody.Connections.PassthroughConnection,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_outputSockets:
+  - m_connectionMode: 0
+    m_connections:
+    - m_inputConnectionPoint: {x: -2, y: 4}
+      m_outputConnectionPoint: {x: 202, y: 4}
+      m_id: 8f3a2681-9546-4669-9abc-e740acdf29aa
+      m_inputNodeId: 8270e34d-a770-46a8-8b4d-cf3dacacab61
+      m_inputSocketId: ff5b78b6-b166-4773-a606-61e0a4cfa54a
+      m_outputNodeId: 95252ad8-a10e-4497-a0d6-a6a16989bd6d
+      m_outputSocketId: 0a592297-9095-41ba-9f3f-8adb23097b41
+    m_connectionPoints:
+    - {x: -2, y: 4}
+    - {x: 202, y: 4}
+    m_direction: 1
+    m_canBeDeleted: 0
+    m_canBeReordered: 0
+    m_curveModifier: 0
+    m_height: 24
+    m_width: 216
+    m_x: 0
+    m_y: 62
+    m_id: 0a592297-9095-41ba-9f3f-8adb23097b41
+    m_nodeId: 95252ad8-a10e-4497-a0d6-a6a16989bd6d
+    m_socketName: OutputSocket_0
+    m_value: '{}'
+    m_valueTypeQualifiedName: Doozy.Engine.Nody.Connections.PassthroughConnection,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_nodeType: 4
+  m_allowDuplicateNodeName: 1
+  m_allowEmptyNodeName: 0
+  m_canBeDeleted: 1
+  m_debugMode: 0
+  m_useFixedUpdate: 0
+  m_useLateUpdate: 0
+  m_useUpdate: 0
+  m_height: 174
+  m_width: 216
+  m_x: -1908
+  m_y: 120
+  m_minimumInputSocketsCount: 1
+  m_minimumOutputSocketsCount: 1
+  m_graphId: 3f32228f-6018-438d-8fb1-5f30dfdcf2e5
+  m_id: 95252ad8-a10e-4497-a0d6-a6a16989bd6d
+  m_name: TimeScale
+  m_notes: 
+  TargetValue: 1
+  AnimateValue: 0
+  AnimationDuration: 1
+  AnimationEase: 1
+  WaitForAnimationToFinish: 0
+--- !u!114 &7557501994858499096
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bd5abe2bf3947e29618205a5d533d57, type: 3}
+  m_Name: TimeScaleNode
+  m_EditorClassIdentifier: 
+  ErrorNodeNameIsEmpty: 0
+  ErrorDuplicateNameFoundInGraph: 0
+  m_inputSockets:
+  - m_connectionMode: 1
+    m_connections:
+    - m_inputConnectionPoint: {x: 202, y: 4}
+      m_outputConnectionPoint: {x: 202, y: 4}
+      m_id: 7e9d3a2b-b4e4-41c8-af09-976aa6638df9
+      m_inputNodeId: 8051d28d-8b22-4d92-b6a0-4df586eba41a
+      m_inputSocketId: 0ef7772e-03c2-4090-ac98-d4230a2df05b
+      m_outputNodeId: 8270e34d-a770-46a8-8b4d-cf3dacacab61
+      m_outputSocketId: 725814b3-1c0a-4854-bdbe-753cabc546bc
+    m_connectionPoints:
+    - {x: -2, y: 4}
+    - {x: 202, y: 4}
+    m_direction: 0
+    m_canBeDeleted: 0
+    m_canBeReordered: 0
+    m_curveModifier: 0
+    m_height: 24
+    m_width: 216
+    m_x: 0
+    m_y: 38
+    m_id: 0ef7772e-03c2-4090-ac98-d4230a2df05b
+    m_nodeId: 8051d28d-8b22-4d92-b6a0-4df586eba41a
+    m_socketName: InputSocket_0
+    m_value: '{}'
+    m_valueTypeQualifiedName: Doozy.Engine.Nody.Connections.PassthroughConnection,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_outputSockets:
+  - m_connectionMode: 0
+    m_connections:
+    - m_inputConnectionPoint: {x: 202, y: 4}
+      m_outputConnectionPoint: {x: 202, y: 4}
+      m_id: ae286481-2835-4627-90ed-72ed40777a76
+      m_inputNodeId: d3dd9a67-0071-4715-ab8d-9c263da45687
+      m_inputSocketId: 42ae6a3d-65e4-4ff5-b038-b6c18365bb8a
+      m_outputNodeId: 8051d28d-8b22-4d92-b6a0-4df586eba41a
+      m_outputSocketId: 60eb490d-568a-4856-9424-5efb2dcd0578
+    m_connectionPoints:
+    - {x: -2, y: 4}
+    - {x: 202, y: 4}
+    m_direction: 1
+    m_canBeDeleted: 0
+    m_canBeReordered: 0
+    m_curveModifier: 0
+    m_height: 24
+    m_width: 216
+    m_x: 0
+    m_y: 62
+    m_id: 60eb490d-568a-4856-9424-5efb2dcd0578
+    m_nodeId: 8051d28d-8b22-4d92-b6a0-4df586eba41a
+    m_socketName: OutputSocket_0
+    m_value: '{}'
+    m_valueTypeQualifiedName: Doozy.Engine.Nody.Connections.PassthroughConnection,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_nodeType: 4
+  m_allowDuplicateNodeName: 1
+  m_allowEmptyNodeName: 0
+  m_canBeDeleted: 1
+  m_debugMode: 0
+  m_useFixedUpdate: 0
+  m_useLateUpdate: 0
+  m_useUpdate: 0
+  m_height: 174
+  m_width: 216
+  m_x: -1608
+  m_y: 120
+  m_minimumInputSocketsCount: 1
+  m_minimumOutputSocketsCount: 1
+  m_graphId: 3f32228f-6018-438d-8fb1-5f30dfdcf2e5
+  m_id: 8051d28d-8b22-4d92-b6a0-4df586eba41a
+  m_name: TimeScale
+  m_notes: 
+  TargetValue: 0.2
+  AnimateValue: 0
+  AnimationDuration: 1
+  AnimationEase: 1
+  WaitForAnimationToFinish: 0
