@@ -13,4 +13,9 @@ public class ConstructedRailState : RailBaseState
     {
         throw new System.NotImplementedException();
     }
+
+    public override Rail HandleSelection(Rail rail)
+    {
+        throw new System.NotImplementedException();
+    }
 }

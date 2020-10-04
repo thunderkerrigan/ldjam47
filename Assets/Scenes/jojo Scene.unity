@@ -404,11 +404,11 @@ MonoBehaviour:
   InstantiableRails:
   - {fileID: 2035724513994073355, guid: 74b9e6b1b7383c745aa516c50fabffbd, type: 3}
   - {fileID: 2035724513994073355, guid: d9606084e096f0549a97f9484dfaafae, type: 3}
-  - {fileID: 2035724513994073355, guid: 01ae0c45c5673854f8db3e7265f6a34d, type: 3}
+  - {fileID: 2035724513994073355, guid: a500b8d8f435fd743b55ceb5228861c5, type: 3}
   - {fileID: 2035724513994073355, guid: 38631ae0693368949bafb840ff5cd798, type: 3}
   - {fileID: 2035724513994073355, guid: 0fca5a7c21880e343a8f76dd3f5d7513, type: 3}
   - {fileID: 2035724513994073355, guid: cf2af6c305a872f42a955a93162632e0, type: 3}
-  - {fileID: 2035724513994073355, guid: a500b8d8f435fd743b55ceb5228861c5, type: 3}
+  - {fileID: 2035724513994073355, guid: 01ae0c45c5673854f8db3e7265f6a34d, type: 3}
 --- !u!1 &807561217
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,7 +870,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2115492918
 Transform:
   m_ObjectHideFlags: 0

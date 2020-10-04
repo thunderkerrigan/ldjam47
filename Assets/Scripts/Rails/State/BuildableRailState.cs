@@ -18,4 +18,9 @@ public class BuildableRailState : RailBaseState
             rail.GetOpenRoutes();
         };
     }
+
+    public override Rail HandleSelection(Rail rail)
+    {
+        throw new System.NotImplementedException();
+    }
 }

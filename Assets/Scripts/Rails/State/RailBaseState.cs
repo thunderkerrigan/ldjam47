@@ -9,5 +9,7 @@ public abstract class RailBaseState
     public abstract void EnterState(Rail rail);
 
     public abstract void Update(Rail rail);
+    public abstract Rail HandleSelection(Rail rail);
+    
 
 }

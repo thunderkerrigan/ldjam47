@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShadowRailState : RailBaseState
+public class SelectedRailState : RailBaseState
 {
     public override void EnterState(Rail rail)
     {
