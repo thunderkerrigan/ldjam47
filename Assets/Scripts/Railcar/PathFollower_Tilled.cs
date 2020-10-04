@@ -30,9 +30,7 @@ public class PathFollower_Tilled : MonoBehaviour{
                 // Move the follower on the path
                 transform.position = _currentPath._pathCreator.path.GetPointAtDistance(_distanceTravelled, _endOfPathInstruction);
                 Quaternion rotation = _currentPath._pathCreator.path.GetRotationAtDistance(_distanceTravelled, _endOfPathInstruction);
-                // Force the angle on X and Z axis to 0
-                rotation.eulerAngles = new Vector3(0f, rotation.eulerAngles.y, 0f);
-                transform.rotation = rotation;
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime);
                 
                 // Rotate the follower depend of the way
                 if(_currentPath._pathWay != PathTile.PathWay.Start) {  transform.forward = -transform.forward; } 
@@ -47,10 +45,7 @@ public class PathFollower_Tilled : MonoBehaviour{
         if (pathEndTrigger != null && pathEndTrigger.paths.Count > 0) {
             bool currentPathExistsInTrigger = false;
             foreach (PathTile currentPath in pathEndTrigger.paths) {
-                if (currentPath._pathCreator == this._currentPath._pathCreator) { 
-                    currentPathExistsInTrigger = true; 
-                    break; 
-                }
+                if (currentPath._pathCreator == this._currentPath._pathCreator) { currentPathExistsInTrigger = true; }
             }
             if (!currentPathExistsInTrigger) {
                 int randomPath = Random.Range(0, pathEndTrigger.paths.Count);
