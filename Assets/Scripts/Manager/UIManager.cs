@@ -10,11 +10,12 @@ public class UIManager : MonoBehaviour
     private GameManager _manager;
 
     public TextMeshProUGUI timeTextField;
+    public TextMeshProUGUI scoreTextField;
     // Start is called before the first frame update
     void Start()
     {
         _manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-        _manager.OnChronoUpdate += OnChronoUpdate;
+        _manager.OnChronoUpdate += OnChronoUpdate; //Abonnement
     }
 
     private void OnChronoUpdate(TimeSpan span)

@@ -868,6 +868,13 @@ MonoBehaviour:
       m_inputSocketId: dcab89c0-bfd3-4383-8f20-6c02fd934ca9
       m_outputNodeId: f5172325-a4a4-4cb3-9ff8-f1b27643a6d9
       m_outputSocketId: e768e8b5-1c08-4ffc-98a3-64cc733d477a
+    - m_inputConnectionPoint: {x: 202, y: 4}
+      m_outputConnectionPoint: {x: 202, y: 4}
+      m_id: d034677b-d5e8-4803-bb61-3a96d437189b
+      m_inputNodeId: 14e34f34-abf9-478b-816b-e7613f33724a
+      m_inputSocketId: dcab89c0-bfd3-4383-8f20-6c02fd934ca9
+      m_outputNodeId: 1cf6f583-c66d-4aff-b7da-816ba3173a50
+      m_outputSocketId: c34e85b0-ad7b-42e8-a8c1-eb29222002a7
     m_connectionPoints:
     - {x: -2, y: 4}
     - {x: 202, y: 4}
@@ -1487,7 +1494,7 @@ MonoBehaviour:
   m_version: 1
   m_description: 
   m_id: 3f32228f-6018-438d-8fb1-5f30dfdcf2e5
-  m_lastModified: 132462959962159070
+  m_lastModified: 132463062323792593
 --- !u!114 &1235898239253993740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1814,7 +1821,14 @@ MonoBehaviour:
     m_valueTypeQualifiedName: Doozy.Engine.UI.Connections.UIConnection, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - m_connectionMode: 0
-    m_connections: []
+    m_connections:
+    - m_inputConnectionPoint: {x: 202, y: 4}
+      m_outputConnectionPoint: {x: 202, y: 4}
+      m_id: d034677b-d5e8-4803-bb61-3a96d437189b
+      m_inputNodeId: 14e34f34-abf9-478b-816b-e7613f33724a
+      m_inputSocketId: dcab89c0-bfd3-4383-8f20-6c02fd934ca9
+      m_outputNodeId: 1cf6f583-c66d-4aff-b7da-816ba3173a50
+      m_outputSocketId: c34e85b0-ad7b-42e8-a8c1-eb29222002a7
     m_connectionPoints:
     - {x: -2, y: 4}
     - {x: 202, y: 4}
@@ -1951,7 +1965,10 @@ MonoBehaviour:
     InstantAction: 0
     Name: Loading
   m_onEnterHideViews: []
-  m_onExitShowViews: []
+  m_onExitShowViews:
+  - Category: Menu
+    InstantAction: 0
+    Name: Score
   m_onExitHideViews: []
 --- !u!114 &4162053013435579894
 MonoBehaviour:
@@ -2106,10 +2123,7 @@ MonoBehaviour:
   m_id: 8270e34d-a770-46a8-8b4d-cf3dacacab61
   m_name: Bouton Pause
   m_notes: 
-  m_onEnterShowViews:
-  - Category: Menu
-    InstantAction: 0
-    Name: Score
+  m_onEnterShowViews: []
   m_onEnterHideViews: []
   m_onExitShowViews: []
   m_onExitHideViews: []

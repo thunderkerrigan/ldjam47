@@ -6,7 +6,8 @@ using UnityEngine;
 
 
 public delegate void ChronoUpdateHandler(TimeSpan span);
-//public Trains int;
+public delegate void ScoreUpdateHandler(int score);
+
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class GameManager : MonoBehaviour
     private Stopwatch _stopwatch = new Stopwatch();
     
     public event ChronoUpdateHandler OnChronoUpdate;
+    public event ScoreUpdateHandler OnScoreUpdate;
+   // public int Score;
 
     void Start()
     {
@@ -26,6 +29,13 @@ public class GameManager : MonoBehaviour
         if (OnChronoUpdate != null)
         {
             OnChronoUpdate(_stopwatch.Elapsed);
+        } 
+        
+        if (OnScoreUpdate != null)
+        {
+           // OnScoreUpdate();
         }
+
+
     }
 }
