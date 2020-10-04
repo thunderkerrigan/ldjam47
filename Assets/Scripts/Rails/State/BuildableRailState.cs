@@ -11,10 +11,10 @@ public class BuildableRailState : RailBaseState
 
     public override void Update(Rail rail)
     {
-        if (rail.selectionText.activeSelf != rail.isSelectable)
+        if (rail.selectionText.activeSelf != rail.isSelected)
         {
             
-            rail.selectionText.SetActive(rail.isSelectable);
+            rail.selectionText.SetActive(rail.isSelected);
             rail.GetOpenRoutes();
         };
     }

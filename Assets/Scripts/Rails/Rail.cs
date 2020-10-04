@@ -70,7 +70,13 @@ public class Rail : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CurrentState.Update(this);
+        // CurrentState.Update(this);
+        if (selectionText.activeSelf != isSelected)
+        {
+            
+           selectionText.SetActive(isSelected);
+            GetOpenRoutes();
+        };
     }
 
     public PositionEnum GetOpenRoutes()
