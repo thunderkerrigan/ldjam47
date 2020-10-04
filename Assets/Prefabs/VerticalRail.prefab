@@ -645,7 +645,7 @@ GameObject:
   - component: {fileID: 2035724513994073355}
   - component: {fileID: 3460949591730744737}
   m_Layer: 0
-  m_Name: VerticalRail
+  m_Name: VerticalRail 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
