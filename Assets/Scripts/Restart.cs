@@ -8,9 +8,9 @@ public class Restart : MonoBehaviour
     
     public void OnRestartButtonClick()
     {
-        
-        SceneManager.LoadScene("jojo Scene");
-     
+        SceneManager.UnloadSceneAsync("jojo Scene");
+        SceneManager.LoadScene("Menu");
+      
         
     }
     
