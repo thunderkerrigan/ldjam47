@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Nectunia.Utility;
 
@@ -16,6 +17,7 @@ public class SpawnManager : MonoBehaviour{
 	private bool        _isFirstSpawned = false;
 	private bool        _haveToStartFirstSpawn = false;
 	private SpawnerPathFollower  _nextSpawn;
+	private List<GameObject> spawnedTrains = new List<GameObject>();
 
 
 	// Init CountDown
@@ -62,13 +64,29 @@ public class SpawnManager : MonoBehaviour{
 	private void Spawn () {
 		GameObject currentPrefab = null;
 		if(this._trainPrefabs.Count > 0) { currentPrefab = this._trainPrefabs[Random.Range(0, this._trainPrefabs.Count)];}
-		this._nextSpawn.Spawn(currentPrefab);
+		var newTrain = this._nextSpawn.Spawn(currentPrefab);
 		this._countDownSpawn.start();
 		this.SetNextSpawn();
+		AddTrainToList(newTrain);
 	}
 
 	public void InitSpawnList (List<Rail> spawnList) {
 		this._spawnList = spawnList;
 		this._haveToStartFirstSpawn = true;
+	}
+
+	private void AddTrainToList(GameObject train)
+	{
+		var pathFollowerTilled = train.GetComponent<PathFollower_Tilled>();
+		pathFollowerTilled.KillMePleaseHandler += RemoveTrainToList;
+		spawnedTrains.Add(pathFollowerTilled.gameObject);
+	}
+	
+	private void RemoveTrainToList(GameObject train)
+	{
+		var pathFollowerTilled = train.GetComponent<PathFollower_Tilled>();
+		pathFollowerTilled.KillMePleaseHandler -= RemoveTrainToList;
+		var controller = train.GetComponent<TrainController>();
+		spawnedTrains.Remove(train);
 	}
 }

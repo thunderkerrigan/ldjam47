@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using PathCreation;
+public delegate void KillMePlease(GameObject train);
 
 [RequireComponent(typeof(Collider))]
 public class PathFollower_Tilled : MonoBehaviour{
@@ -11,16 +12,34 @@ public class PathFollower_Tilled : MonoBehaviour{
     private float _distanceTravelled = 0f;
     private float _absolutDistanceTravelled = 0f;
 	private PathTile _nextPath;
+    private bool stopMoving = false;
+    public event KillMePlease KillMePleaseHandler;
 
-    void Update() { 
+    void Update() {
+        if (stopMoving)
+        {
+            return;
+        }
         if (_currentPath != null){
             _absolutDistanceTravelled += _speed * Time.deltaTime;
 
-            if (_absolutDistanceTravelled > _currentPath._pathCreator.path.length && _nextPath != null) {
-                _absolutDistanceTravelled = _speed * Time.deltaTime;
-                this._currentPath = this._nextPath;
-                this._nextPath = null;
+            if (_absolutDistanceTravelled > _currentPath._pathCreator.path.length ) {
+                if (_nextPath != null)
+                {
+                    _absolutDistanceTravelled = _speed * Time.deltaTime;
+                    this._currentPath = this._nextPath;
+                    this._nextPath = null;
+                }
+                else
+                {
+                    if (KillMePleaseHandler != null)
+                    {
+                        stopMoving = true;
+                        KillMePleaseHandler(this.gameObject);
+                    }
+                }
             }
+ 
 
             if(_absolutDistanceTravelled <= _currentPath._pathCreator.path.length) {
                 // Get the distance travelled depend of the the way
@@ -43,7 +62,8 @@ public class PathFollower_Tilled : MonoBehaviour{
 	private void OnTriggerEnter (Collider other) {
 		PathEndTrigger pathEndTrigger = other.gameObject.GetComponent<PathEndTrigger>();
         //Debug.Log("Trigger " + other.name + " : " + pathEndTrigger.paths[0]._pathWay.ToString() );
-		
+        var otherTrain = other.gameObject.GetComponent<TrainController>();
+
         if (pathEndTrigger != null && pathEndTrigger.paths.Count > 0) {
             bool currentPathExistsInTrigger = false;
             foreach (PathTile currentPath in pathEndTrigger.paths) {
@@ -56,6 +76,16 @@ public class PathFollower_Tilled : MonoBehaviour{
                 int randomPath = Random.Range(0, pathEndTrigger.paths.Count);
                 this._nextPath = pathEndTrigger.paths[randomPath];
             }
-		}
+            return;
+        }
+
+        if (otherTrain != null)
+        {
+            if (KillMePleaseHandler != null)
+            {
+             KillMePleaseHandler(this.gameObject);
+             return;
+            }          
+        }
 	}
 }

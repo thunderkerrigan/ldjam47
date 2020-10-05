@@ -12,7 +12,6 @@ public class SpawnerPathFollower : MonoBehaviour {
 	private Vector3		_startPosition;
 
 	private CountDown   _nextSpawnTime;
-
 	public CountDown NextSpawnTime {
 		get => this._nextSpawnTime;
 		set => this._nextSpawnTime = value;
@@ -30,11 +29,11 @@ public class SpawnerPathFollower : MonoBehaviour {
 		this.Spawn(this._defaultTrainPrefab, this._defaultTrainSpeed);
 	}
 	
-	public void Spawn (GameObject trainPrefab) {
-		this.Spawn(trainPrefab, this._defaultTrainSpeed);
+	public GameObject Spawn (GameObject trainPrefab) {
+		return this.Spawn(trainPrefab, this._defaultTrainSpeed);
 	}
 
-	public void Spawn (GameObject trainPrefab, float trainSpeed) {
+	public GameObject Spawn (GameObject trainPrefab, float trainSpeed) {
 		// Check the if the Prefab
 		PathFollower_Tilled followerComponent = trainPrefab?.GetComponent<PathFollower_Tilled>();
 		if(followerComponent == null) { trainPrefab = _defaultTrainPrefab; }
@@ -46,7 +45,12 @@ public class SpawnerPathFollower : MonoBehaviour {
 			followerComponent._currentPath._pathWay = PathTile.PathWay.Start;
 			followerComponent._speed = trainSpeed;
 			newTrain.SetActive(true);
+			this._nextSpawnTime = null;
+
+			return newTrain;
 		}
 		this._nextSpawnTime = null;
+
+		return null;
 	}
 }
