@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        _stopwatch.Reset();
+            
         //_smanager.OnSpawnUpdate += SpawnTotal;
         _stopwatch.Start();
     }
