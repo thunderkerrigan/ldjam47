@@ -13,8 +13,8 @@ public delegate void ScoreUpdateHandler(int score);
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    private SpawnManager _smanager;  
-    private GridManager _gridManager;  
+    private SpawnManager _smanager;
+    private GridManager _gridManager;
 
     private int TotalSpawn;
     private Stopwatch _stopwatch = new Stopwatch();
@@ -22,12 +22,12 @@ public class GameManager : MonoBehaviour
     public event ChronoUpdateHandler OnChronoUpdate;
     public event ScoreUpdateHandler OnScoreUpdate;
 
-   // public int Score;
-
+    // public int Score;
     void Start()
     {
 
         _gridManager = GameObject.FindGameObjectWithTag("GridManager").GetComponent<GridManager>();
+        SoundyManager.Play("Game", "Music 1");
         _stopwatch.Reset();
         
         _stopwatch.Start();
@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     {
         if (_smanager != null)
         {
+            _stopwatch.Stop();
             _smanager.StopSpawnList();
         }
     }
