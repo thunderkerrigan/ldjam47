@@ -19,6 +19,8 @@ AudioMixerController:
   m_ExposedParameters:
   - guid: 30fb20794178ead4ebfeb21db3fef3d9
     name: AlertsVolume
+  - guid: 122f0cd99a64585409d3579727551b84
+    name: Master
   - guid: 71f666c95cb584e479e181989d7bddb1
     name: MusicVolume
   - guid: 34043dd5ddefb0646b82c1f511c52186
@@ -179,7 +181,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 244785100289907380}
-  m_UserColorIndex: 0
+  m_UserColorIndex: 1
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
@@ -198,7 +200,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 244447519714268626}
-  m_UserColorIndex: 0
+  m_UserColorIndex: 2
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0

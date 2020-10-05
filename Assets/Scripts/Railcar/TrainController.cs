@@ -24,11 +24,16 @@ public class TrainController : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         Destroy(this.gameObject);
     }
-    
-    private void Kill(GameObject myself)
+
+
+    public void Unsub()
     {
-        StartCoroutine(DeathSwitch());
         _follower.KillMePleaseHandler -= Kill;
+    }
+    public void Kill(GameObject myself)
+    {
+        Unsub();
+        StartCoroutine(DeathSwitch());
 
     }
 }

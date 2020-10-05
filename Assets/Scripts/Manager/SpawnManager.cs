@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Nectunia.Utility;
+using Doozy.Engine;
+
+
+public delegate void SpawnUpdateHandler(int spawn);
+public delegate void DeathUpdateHandler(GameObject train);
 
 public class SpawnManager : MonoBehaviour{
 
@@ -19,6 +24,12 @@ public class SpawnManager : MonoBehaviour{
 	private SpawnerPathFollower  _nextSpawn;
 	private List<GameObject> spawnedTrains = new List<GameObject>();
 
+	public event SpawnUpdateHandler OnSpawnUpdate;
+	public event DeathUpdateHandler OnDeathUpdate;
+
+	public int spawn = 0;
+
+
 
 	// Init CountDown
 	void OnEnable () {
@@ -26,6 +37,15 @@ public class SpawnManager : MonoBehaviour{
 		this._countDownFirstSpawn = new CountDown(this._firstSpawnTimeSeconde);		
 	}
 
+	private void Start() {
+
+		var gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+		if (gameManager !=null)
+		{
+			gameManager.hookspawnmanager (this);
+		}
+
+	}
 	// Endless spawn
 	void Update() {
 		// Start the first spawn countdown if the spawnlist have been set
@@ -46,7 +66,7 @@ public class SpawnManager : MonoBehaviour{
 				}
 
 				// Endless Spawn
-				if (this._countDownSpawn.IsUp) { this.Spawn(); }
+				if (_countDownSpawn != null && this._countDownSpawn.IsUp) { this.Spawn(); }
 			}
 		}
     }
@@ -68,6 +88,7 @@ public class SpawnManager : MonoBehaviour{
 		this._countDownSpawn.start();
 		this.SetNextSpawn();
 		AddTrainToList(newTrain);
+
 	}
 
 	public void InitSpawnList (List<Rail> spawnList) {
@@ -75,11 +96,35 @@ public class SpawnManager : MonoBehaviour{
 		this._haveToStartFirstSpawn = true;
 	}
 
+	public void StartSpawn()
+	{
+		if (_countDownSpawn == null)
+		{
+			_countDownSpawn = new CountDown(_spawnTimeSeconde);
+		}
+		_countDownSpawn.start();
+	}
+
+	public void StopSpawnList()
+	{
+		foreach (var _train in spawnedTrains)
+		{
+			var _pathFollowerTilled = _train.GetComponent<PathFollower_Tilled>();
+			_pathFollowerTilled.KillMePleaseHandler -= RemoveTrainToList;
+			_train.GetComponent<TrainController>().Unsub();
+			spawnedTrains.Remove(_train);
+			Destroy(_train);
+		}
+
+		_countDownSpawn = null;
+	}
+
 	private void AddTrainToList(GameObject train)
 	{
 		var pathFollowerTilled = train.GetComponent<PathFollower_Tilled>();
 		pathFollowerTilled.KillMePleaseHandler += RemoveTrainToList;
 		spawnedTrains.Add(pathFollowerTilled.gameObject);
+		NotifySpawn();
 	}
 	
 	private void RemoveTrainToList(GameObject train)
@@ -88,5 +133,21 @@ public class SpawnManager : MonoBehaviour{
 		pathFollowerTilled.KillMePleaseHandler -= RemoveTrainToList;
 		var controller = train.GetComponent<TrainController>();
 		spawnedTrains.Remove(train);
+		NotifySpawn();
+		GameEventMessage.SendEvent("Dead");
+		if (OnDeathUpdate != null)
+		{
+			OnDeathUpdate(train);
+		}
+	}
+	 
+	private void NotifySpawn()
+	{
+		if (OnSpawnUpdate != null)
+        {
+            
+			OnSpawnUpdate(spawnedTrains.Count);
+			
+        } 
 	}
 }
