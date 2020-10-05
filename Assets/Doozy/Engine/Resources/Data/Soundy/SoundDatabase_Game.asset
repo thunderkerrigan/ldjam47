@@ -45,7 +45,7 @@ MonoBehaviour:
   SoundName: Music 1
   IgnoreListenerPause: 1
   Volume:
-    MinValue: 0
+    MinValue: -30.9
     MaxValue: 0
   Pitch:
     MinValue: 0
