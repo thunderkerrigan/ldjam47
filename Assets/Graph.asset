@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Name: UINode
   m_EditorClassIdentifier: 
   ErrorNodeNameIsEmpty: 0
-  ErrorDuplicateNameFoundInGraph: 1
+  ErrorDuplicateNameFoundInGraph: 0
   m_inputSockets:
   - m_connectionMode: 1
     m_connections:
@@ -1859,7 +1859,7 @@ MonoBehaviour:
   m_version: 1
   m_description: 
   m_id: 3f32228f-6018-438d-8fb1-5f30dfdcf2e5
-  m_lastModified: 132464051869634106
+  m_lastModified: 132464061232761782
 --- !u!114 &719506376007134637
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2124,7 +2124,7 @@ MonoBehaviour:
   m_Name: UINode
   m_EditorClassIdentifier: 
   ErrorNodeNameIsEmpty: 0
-  ErrorDuplicateNameFoundInGraph: 1
+  ErrorDuplicateNameFoundInGraph: 0
   m_inputSockets:
   - m_connectionMode: 1
     m_connections:
@@ -2195,7 +2195,7 @@ MonoBehaviour:
   m_minimumOutputSocketsCount: 1
   m_graphId: 3f32228f-6018-438d-8fb1-5f30dfdcf2e5
   m_id: ed2b4e13-bd8e-420a-be64-33976ce93c5f
-  m_name: UI Node
+  m_name: Loose view
   m_notes: 
   m_onEnterShowViews:
   - Category: Menu
