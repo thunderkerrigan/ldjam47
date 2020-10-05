@@ -38,13 +38,13 @@ public class MouseController : MonoBehaviour
 
     void Update()
     {
-        if (shadowRail && Input.GetMouseButtonDown(0))
+        if (shadowRail && (Input.GetMouseButtonDown(0) | Input.GetMouseButtonDown(1)))
         {
             _gridManager.ConstructRail(buildableRails[railIndex], selectedRail.coordinate);
             Destroy(shadowRail.gameObject);
         }
         
-        if (selectedRail && !selectedRail.isBuildable && Input.GetMouseButtonDown(1))
+        if (selectedRail && !selectedRail.isBuildable && (Input.GetMouseButtonDown(0) | Input.GetMouseButtonDown(1)))
         {
             _gridManager.DestroyRail(selectedRail.coordinate);
         }
@@ -87,9 +87,12 @@ public class MouseController : MonoBehaviour
                     railIndex = 0;
                     selectedRail.isSelected = false;
                     selectedRail = rail;
-                    if (selectedRail.isBuildable)
+                    if (!selectedRail.isProtected)
                     {
                         selectedRail.isSelected = true;
+                    }
+                    if (selectedRail.isBuildable)
+                    {
                         
                         if (availablePosition != PositionEnum.None)
                         {
