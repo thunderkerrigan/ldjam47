@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Nectunia.Utility;
+using Doozy.Engine;
 
 
 public delegate void SpawnUpdateHandler(int spawn);
@@ -108,6 +109,8 @@ public class SpawnManager : MonoBehaviour{
 		var controller = train.GetComponent<TrainController>();
 		spawnedTrains.Remove(train);
 		NotifySpawn();
+		GameEventMessage.SendEvent("Dead");
+
 	}
 	 
 	private void NotifySpawn()
