@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class SelectionTile : MonoBehaviour
 {
+    public Material DestroyableMaterial;
     public Material GoodMaterial;
     public Material BadMaterial;
     [SerializeField] private MeshRenderer hintRenderer;
@@ -34,7 +35,17 @@ public class SelectionTile : MonoBehaviour
         }
         else
         {
-            hintRenderer.material = GoodMaterial;
+            if (ParentRail.isBuildable)
+            {
+                hintRenderer.material = GoodMaterial;
+            }
+            else
+            {
+                if (!ParentRail.isProtected && !ParentRail.isBuildable)
+                {
+                    hintRenderer.material = DestroyableMaterial;
+                }
+            }
         }
     }
 }
