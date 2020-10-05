@@ -41,9 +41,12 @@ public class Rail : MonoBehaviour
     [SerializeField] public List<Material> backgroundMaterials;
     public bool isSelected = false;
     public bool isBuildable = true;
+    public bool isProtected = false;
     public PositionEnum openDirection = PositionEnum.None;
     public TextMeshPro textMesh;
     public MeshRenderer backgroundTile;
+    
+    private List<GameObject> _trainsOnRail = new List<GameObject>(); 
 
     #region State
 
@@ -77,6 +80,17 @@ public class Rail : MonoBehaviour
            selectionText.SetActive(isSelected);
             GetOpenRoutes();
         };
+    }
+
+    public void AddTrain(GameObject train)
+    {
+        _trainsOnRail.Add(train);
+        isProtected = true;
+    }
+    public void RemoveTrain(GameObject train)
+    {
+        _trainsOnRail.Remove(train);
+        isProtected = _trainsOnRail.Count> 0;
     }
 
     public Rail SelectRail()

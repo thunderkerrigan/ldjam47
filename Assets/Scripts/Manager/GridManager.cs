@@ -136,6 +136,29 @@ public class GridManager : MonoBehaviour
         }
         return PositionEnum.None;
     }
+
+    private Rail MakeRail(Rail rail, PositionEnum nextOrientation, Vector3 position, Coordinate coordinate)
+    {
+        var newRail = Instantiate(rail, position, Quaternion.identity);
+        newRail.openDirection = rail.openDirection;
+        newRail.coordinate = new Coordinate(coordinate.Row,coordinate.Column);
+        newRail.OnRequestOpenRoutesHandler += FetchNeighborRails;
+        newRail.SetText("");
+        return newRail;
+    }
+
+    public void DestroyRail(Coordinate position)
+    {
+        var targetRail = gridItems[position.Row][position.Column];
+        if (!targetRail.isProtected)
+        {
+            var gridPosition = targetRail.gameObject.transform.position;
+            Destroy(targetRail.gameObject);
+            var emptyRail = filterSinglePrefabsForOrientation(PositionEnum.None);
+            var newRail = MakeRail(emptyRail, PositionEnum.None, gridPosition, position);
+            gridItems[position.Row][position.Column] = newRail;
+        }
+    }
     
     public void ConstructRail(Rail requestedRail, Coordinate position)
     {
@@ -146,7 +169,7 @@ public class GridManager : MonoBehaviour
             var gridPosition = targetRail.gameObject.transform.position;
             targetRail.OnRequestOpenRoutesHandler -= FetchNeighborRails;
             Destroy(targetRail.gameObject);
-            var newRail = Instantiate(requestedRail, gridPosition, Quaternion.identity);
+            var newRail = MakeRail(requestedRail, PositionEnum.None, gridPosition, position);
             gridItems[position.Row][position.Column] = newRail;
         }
     }

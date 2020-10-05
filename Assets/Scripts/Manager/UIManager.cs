@@ -31,7 +31,6 @@ public class UIManager : MonoBehaviour
         timeTextField.text= String.Format("{0:00}:{1:00}.{2:00}",
              span.Minutes, span.Seconds,
              span.Milliseconds / 10);
-        Debug.Log( "temps: " + timeTextField.text);
     }
     
     // Update is called once per frame
