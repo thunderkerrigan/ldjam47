@@ -180,7 +180,7 @@ public class GridManager : MonoBehaviour
         {
             foreach (var item in row)
             {
-                Destroy(item);
+                Destroy(item.gameObject);
             }
         }
         gridItems = new List<List<Rail>>(gridSize);

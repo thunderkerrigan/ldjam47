@@ -71,14 +71,26 @@ public class SpawnManager : MonoBehaviour{
 		}
     }
 
-	private void SetNextSpawn () {		 
+	private void SetNextSpawn()
+	{
 		Rail nextSpawnRail = this._spawnList[Random.Range(0, this._spawnList.Count)];
-		if(nextSpawnRail != null) {
+		if (nextSpawnRail != null)
+		{
 			this._nextSpawn = nextSpawnRail.gameObject.GetComponent<SpawnerPathFollower>();
-		// Send the countdown to the next Spawner
-			if (this._isFirstSpawned) { this._nextSpawn.NextSpawnTime = this._countDownSpawn; }
-			else{ this._nextSpawn.NextSpawnTime = this._countDownFirstSpawn; }
-		} else { Debug.LogWarning("SpawnRail have no SpawnerPathFollower component" + nextSpawnRail.name); }		
+			// Send the countdown to the next Spawner
+			if (this._isFirstSpawned)
+			{
+				this._nextSpawn.NextSpawnTime = this._countDownSpawn;
+			}
+			else
+			{
+				this._nextSpawn.NextSpawnTime = this._countDownFirstSpawn;
+			}
+		}
+		else
+		{
+			//Debug.LogWarning("SpawnRail have no SpawnerPathFollower component" + nextSpawnRail.name);
+		}
 	}
 
 	private void Spawn () {
