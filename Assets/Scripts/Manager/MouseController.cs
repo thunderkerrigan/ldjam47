@@ -43,11 +43,7 @@ public class MouseController : MonoBehaviour
             _gridManager.ConstructRail(buildableRails[railIndex], selectedRail.coordinate);
             Destroy(shadowRail.gameObject);
         }
-
-        if (selectedRail)
-        {
-            Debug.Log("selectedRail:" + selectedRail.coordinate.Row + ";" + selectedRail.coordinate.Column);
-        }
+        
         if (selectedRail && !selectedRail.isBuildable && Input.GetMouseButtonDown(1))
         {
             _gridManager.DestroyRail(selectedRail.coordinate);
@@ -82,8 +78,6 @@ public class MouseController : MonoBehaviour
                 }
                 else if (selectedRail  && (selectedRail.coordinate.Row != rail.coordinate.Row || selectedRail.coordinate.Column != rail.coordinate.Column))
                 {
-                    Debug.Log("NEWNEWENWENWENWENW selectedRail:" + selectedRail.coordinate.Row + ";" + selectedRail.coordinate.Column);
-
                     if (shadowRail)
                     {
                         Destroy(shadowRail.gameObject);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [Flags]
 public enum PositionEnum
@@ -38,7 +39,6 @@ public class GridManager : MonoBehaviour
     void Start()
     {
         gridItems = new List<List<Rail>>(gridSize);
-        this.DefineSpawnTile();
         InitGrid();
     }
 
@@ -51,8 +51,7 @@ public class GridManager : MonoBehaviour
             var newRow = new List<Rail>();
             for (int j = 0; j < gridSize; j++)
             {
-                int reservedTileIndex = this._reservedTiles.FindIndex(c => c.Row == i && c.Column == j);
-                if(reservedTileIndex == -1) { 
+                
                     var nextOrientation = PositionEnum.None;
                     var noneRail = filterSinglePrefabsForOrientation(nextOrientation);
                     var newRail = Instantiate(noneRail, currentPosition, Quaternion.identity);
@@ -62,7 +61,7 @@ public class GridManager : MonoBehaviour
                      newRail.SetText("");
 
                     newRow.Add(newRail);
-				} else { newRow.Add(this._spawnTiles[reservedTileIndex]);}
+				
                 
                 currentPosition += Vector3.right;
             }
@@ -70,6 +69,8 @@ public class GridManager : MonoBehaviour
             currentPosition.x= 0;
             currentPosition += Vector3.back;
         }
+
+        DefineSpawnTile();
     }
 
     public Rail filterSinglePrefabsForOrientation(PositionEnum orientation)
@@ -77,16 +78,15 @@ public class GridManager : MonoBehaviour
         return InstantiableRails.Find((rail => rail.openDirection == orientation));
 
     }
-    
-    public Rail filterSpawnPrefabsForOrientation(PositionEnum orientation)
-    {
-        return this.SpawnRails.Find((rail => rail.openDirection == orientation));
 
-    }
-    
     public List<Rail> filterPrefabsForOrientation(PositionEnum orientation)
     {
         return InstantiableRails.FindAll((rail => (rail.openDirection & orientation) == orientation));
+    }
+    
+    public List<Rail> filterSpawnPrefabsForOrientation(PositionEnum orientation)
+    {
+        return SpawnRails.FindAll((rail => (rail.openDirection & orientation) != PositionEnum.None));
     }
 
     private PositionEnum FetchNeighborRails(Coordinate coordinate)
@@ -187,74 +187,43 @@ public class GridManager : MonoBehaviour
     }
 
     private void DefineSpawnTile () {
-        for (int i = 0; i < this._numberSpawnTile; i++) {
-            bool isValideTile = false;
-            while (!isValideTile) { 
-                int coefX = UnityEngine.Random.Range(0,2);
-                int coefY = UnityEngine.Random.Range(0,2);
-                int x;
-                int y;
-                
-                // TOP and RIGHT side
-                if(coefX  == 1 && coefY  == 1) {
-                    // RIDE SIDE
-                    if(UnityEngine.Random.Range(0,2) == 0) {                        
-                        x = this.gridSize-1;
-                        y = UnityEngine.Random.Range(0, this.gridSize-1);
-                    // TOP SIDE
-					} else {            
-                        x = UnityEngine.Random.Range(0, this.gridSize-1);
-                        y = this.gridSize-1;
-					}
-                // LEFT and BOTTOM side
-				} else {
-                    x = UnityEngine.Random.Range(0, this.gridSize-1) * coefX;
-                    y = UnityEngine.Random.Range(0, this.gridSize-1) * coefY;
-				}
+        for (int i = 0; i < this._numberSpawnTile; i++)
+        {
+            var maxRow = gridItems.Count - 1;
+            var randomRow = Random.Range(0, maxRow);
+            var maxColumn = gridItems[randomRow].Count - 1;
+            var randomColumn = Random.Range(0, maxColumn);
+            var nextCoordinate = new Coordinate(randomRow, randomColumn);
+            var directions = PositionEnum.Top | PositionEnum.Down | PositionEnum.Right | PositionEnum.Left;
+            if (nextCoordinate.Row == 0)
+            {
+                directions ^= PositionEnum.Top;
+            }
 
-                if(this._reservedTiles.FindIndex(c => c.Row == y && c.Column == x) == -1) {
-                    isValideTile = true;
-                    this._reservedTiles.Add(new Coordinate(y, x));
-                    
-                    var orientation = PositionEnum.None;
-                    // LEFT BOTTOM corner
-                    if((x == 0 && y == 0)) {
-                        if (UnityEngine.Random.Range(0, 2) == 0) { orientation = PositionEnum.Right; }
-                        else { orientation = PositionEnum.Down; }
-                    // LEFT TOP corner
-					} else if((x == 0 && y == this.gridSize-1)) {
-                        if (UnityEngine.Random.Range(0, 2) == 0) { orientation = PositionEnum.Right; }
-                        else { orientation = PositionEnum.Top; }
-					// RIGHT BOTTOM corner
-					} else if((x == this.gridSize-1 && y == 0)) {
-                        if (UnityEngine.Random.Range(0, 2) == 0) { orientation = PositionEnum.Left; }
-                        else { orientation = PositionEnum.Down; }
-					// RIGHT TOP corner
-					} else if((x == this.gridSize-1 && y == this.gridSize-1)) {
-                        if (UnityEngine.Random.Range(0, 2) == 0) { orientation = PositionEnum.Left; }
-                        else { orientation = PositionEnum.Top; }
-					// LEFT side
-					} else if(x == 0) { orientation = PositionEnum.Right; }
-					// RIGHT side
-					else if(x == this.gridSize-1) { orientation = PositionEnum.Left; }
-					// BOTTOM side
-					else if(y == 0) { orientation = PositionEnum.Down; }
-					// LEFT side
-					else if(y == this.gridSize-1) { orientation = PositionEnum.Top; }
+            if (nextCoordinate.Row == maxRow)
+            {
+                directions ^= PositionEnum.Down;
+            }
+            
+            if (nextCoordinate.Column == 0)
+            {
+                directions ^= PositionEnum.Left;
+            }
+            
+            if (nextCoordinate.Column == maxColumn)
+            {
+                directions ^= PositionEnum.Right;
+            }
 
-                    // Define the position in the grid of the Tile
-                    Vector3 tilePosition = (x * Vector3.right) + (y * Vector3.back);
-                    // Init the Spawn 
-                    Rail noneRail = filterSpawnPrefabsForOrientation(orientation);
-                    Rail newRail = Instantiate(noneRail, tilePosition, Quaternion.identity);
-                    newRail.openDirection = orientation;
-                    newRail.coordinate = new Coordinate(y, x);
-                    newRail.OnRequestOpenRoutesHandler += FetchNeighborRails;
-                    newRail.SetText("");
-                    this._spawnTiles.Add(newRail);
-				}
-			}
-		}
+            var availableSpawnerPrefab = filterSpawnPrefabsForOrientation(directions);
+            if (availableSpawnerPrefab.Count > 0)
+            {
+                var nextSpawnerPrefab = availableSpawnerPrefab[Random.Range(0, availableSpawnerPrefab.Count)];
+                ConstructRail(nextSpawnerPrefab,nextCoordinate); 
+                _spawnTiles.Add(gridItems[nextCoordinate.Row][nextCoordinate.Column]);
+            }
+            
+        }
         if (this._spawnManager != null) { this._spawnManager.InitSpawnList(this._spawnTiles); }
     }
     
