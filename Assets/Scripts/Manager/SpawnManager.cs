@@ -73,9 +73,9 @@ public class SpawnManager : MonoBehaviour{
 
 	private void SetNextSpawn () {		 
 		Rail nextSpawnRail = this._spawnList[Random.Range(0, this._spawnList.Count)];
-		this._nextSpawn = nextSpawnRail.gameObject.GetComponent<SpawnerPathFollower>();
+		if(nextSpawnRail != null) {
+			this._nextSpawn = nextSpawnRail.gameObject.GetComponent<SpawnerPathFollower>();
 		// Send the countdown to the next Spawner
-		if(this._nextSpawn != null) {
 			if (this._isFirstSpawned) { this._nextSpawn.NextSpawnTime = this._countDownSpawn; }
 			else{ this._nextSpawn.NextSpawnTime = this._countDownFirstSpawn; }
 		} else { Debug.LogWarning("SpawnRail have no SpawnerPathFollower component" + nextSpawnRail.name); }		
@@ -94,6 +94,7 @@ public class SpawnManager : MonoBehaviour{
 	public void InitSpawnList (List<Rail> spawnList) {
 		this._spawnList = spawnList;
 		this._haveToStartFirstSpawn = true;
+		StartSpawn();
 	}
 
 	public void StartSpawn()
@@ -101,8 +102,9 @@ public class SpawnManager : MonoBehaviour{
 		if (_countDownSpawn == null)
 		{
 			_countDownSpawn = new CountDown(_spawnTimeSeconde);
+			_countDownSpawn.start();
+
 		}
-		_countDownSpawn.start();
 	}
 
 	public void StopSpawnList()
@@ -112,10 +114,13 @@ public class SpawnManager : MonoBehaviour{
 			var _pathFollowerTilled = _train.GetComponent<PathFollower_Tilled>();
 			_pathFollowerTilled.KillMePleaseHandler -= RemoveTrainToList;
 			_train.GetComponent<TrainController>().Unsub();
-			spawnedTrains.Remove(_train);
 			Destroy(_train);
 		}
+		spawnedTrains = new List<GameObject>();
 
+		_spawnList = new List<Rail>();
+
+		_nextSpawn = null;
 		_countDownSpawn = null;
 	}
 
@@ -134,11 +139,17 @@ public class SpawnManager : MonoBehaviour{
 		var controller = train.GetComponent<TrainController>();
 		spawnedTrains.Remove(train);
 		NotifySpawn();
-		GameEventMessage.SendEvent("Dead");
+		StartCoroutine(ShowGameOverMenu());
 		if (OnDeathUpdate != null)
 		{
 			OnDeathUpdate(train);
 		}
+	}
+
+	private IEnumerator ShowGameOverMenu()
+	{
+		yield return new WaitForSeconds(3);
+		GameEventMessage.SendEvent("Dead");
 	}
 	 
 	private void NotifySpawn()

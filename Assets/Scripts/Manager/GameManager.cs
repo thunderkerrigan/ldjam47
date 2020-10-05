@@ -22,20 +22,23 @@ public class GameManager : MonoBehaviour
     public event ChronoUpdateHandler OnChronoUpdate;
     public event ScoreUpdateHandler OnScoreUpdate;
 
-
    // public int Score;
 
     void Start()
     {
+
         _gridManager = GameObject.FindGameObjectWithTag("GridManager").GetComponent<GridManager>();
+        _stopwatch.Reset();
+        
         _stopwatch.Start();
     }
-    
-    void StartGame()
+
+
+    public void StartGame()
     {
         isRunning = true;
+        _stopwatch.Reset();
         _stopwatch.Start();
-        _smanager.StartSpawn();
         _gridManager.InitGrid();
     }
 
