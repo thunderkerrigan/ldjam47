@@ -1379,13 +1379,6 @@ MonoBehaviour:
       m_inputSocketId: 4a376df7-28aa-4dfa-9990-2284e091e2bb
       m_outputNodeId: d3dd9a67-0071-4715-ab8d-9c263da45687
       m_outputSocketId: ed4ef39f-9ca7-4eec-9ae0-c4c1abe49a47
-    - m_inputConnectionPoint: {x: -2, y: 4}
-      m_outputConnectionPoint: {x: 202, y: 4}
-      m_id: 67e46922-9cec-425a-a966-c4b4526fca19
-      m_inputNodeId: 5f3cf1f8-9781-4776-813e-db6c4192955e
-      m_inputSocketId: 4a376df7-28aa-4dfa-9990-2284e091e2bb
-      m_outputNodeId: ed2b4e13-bd8e-420a-be64-33976ce93c5f
-      m_outputSocketId: e4f7220f-81c0-4118-a14f-120e55527002
     m_connectionPoints:
     - {x: -2, y: 4}
     - {x: 202, y: 4}
@@ -1859,7 +1852,7 @@ MonoBehaviour:
   m_version: 1
   m_description: 
   m_id: 3f32228f-6018-438d-8fb1-5f30dfdcf2e5
-  m_lastModified: 132464061232761782
+  m_lastModified: 132464064949827724
 --- !u!114 &719506376007134637
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2128,8 +2121,8 @@ MonoBehaviour:
   m_inputSockets:
   - m_connectionMode: 1
     m_connections:
-    - m_inputConnectionPoint: {x: 202, y: 4}
-      m_outputConnectionPoint: {x: -2, y: 4}
+    - m_inputConnectionPoint: {x: -2, y: 4}
+      m_outputConnectionPoint: {x: 202, y: 4}
       m_id: a78677e7-17f4-4476-a15f-1e90d097ab04
       m_inputNodeId: ed2b4e13-bd8e-420a-be64-33976ce93c5f
       m_inputSocketId: 5884bc3a-b14f-4b8d-bfe2-0381b44dbf37
@@ -2157,9 +2150,9 @@ MonoBehaviour:
     m_connections:
     - m_inputConnectionPoint: {x: -2, y: 4}
       m_outputConnectionPoint: {x: 202, y: 4}
-      m_id: 67e46922-9cec-425a-a966-c4b4526fca19
-      m_inputNodeId: 5f3cf1f8-9781-4776-813e-db6c4192955e
-      m_inputSocketId: 4a376df7-28aa-4dfa-9990-2284e091e2bb
+      m_id: c66ff450-7693-493c-960a-a322e5cf2f6d
+      m_inputNodeId: 35054628-f9a4-478d-9359-a3bd84bc7841
+      m_inputSocketId: 58b2b1a1-9280-49ce-bb5b-399cb1e1c955
       m_outputNodeId: ed2b4e13-bd8e-420a-be64-33976ce93c5f
       m_outputSocketId: e4f7220f-81c0-4118-a14f-120e55527002
     m_connectionPoints:
@@ -2189,8 +2182,8 @@ MonoBehaviour:
   m_useUpdate: 0
   m_height: 128
   m_width: 216
-  m_x: -1932
-  m_y: 576
+  m_x: -840
+  m_y: -252
   m_minimumInputSocketsCount: 1
   m_minimumOutputSocketsCount: 1
   m_graphId: 3f32228f-6018-438d-8fb1-5f30dfdcf2e5
@@ -2585,6 +2578,13 @@ MonoBehaviour:
       m_inputSocketId: 58b2b1a1-9280-49ce-bb5b-399cb1e1c955
       m_outputNodeId: 14e34f34-abf9-478b-816b-e7613f33724a
       m_outputSocketId: 95b680ba-1d4d-40c4-84d5-21054757a40b
+    - m_inputConnectionPoint: {x: -2, y: 4}
+      m_outputConnectionPoint: {x: 202, y: 4}
+      m_id: c66ff450-7693-493c-960a-a322e5cf2f6d
+      m_inputNodeId: 35054628-f9a4-478d-9359-a3bd84bc7841
+      m_inputSocketId: 58b2b1a1-9280-49ce-bb5b-399cb1e1c955
+      m_outputNodeId: ed2b4e13-bd8e-420a-be64-33976ce93c5f
+      m_outputSocketId: e4f7220f-81c0-4118-a14f-120e55527002
     m_connectionPoints:
     - {x: -2, y: 4}
     - {x: 202, y: 4}
@@ -2651,7 +2651,13 @@ MonoBehaviour:
   - Category: Menu
     InstantAction: 0
     Name: Loading
-  m_onEnterHideViews: []
+  m_onEnterHideViews:
+  - Category: Menu
+    InstantAction: 0
+    Name: Loose
+  - Category: Menu
+    InstantAction: 0
+    Name: Score
   m_onExitShowViews: []
   m_onExitHideViews: []
 --- !u!114 &3879242093202522181
@@ -3079,8 +3085,8 @@ MonoBehaviour:
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - m_connectionMode: 0
     m_connections:
-    - m_inputConnectionPoint: {x: 202, y: 4}
-      m_outputConnectionPoint: {x: -2, y: 4}
+    - m_inputConnectionPoint: {x: -2, y: 4}
+      m_outputConnectionPoint: {x: 202, y: 4}
       m_id: a78677e7-17f4-4476-a15f-1e90d097ab04
       m_inputNodeId: ed2b4e13-bd8e-420a-be64-33976ce93c5f
       m_inputSocketId: 5884bc3a-b14f-4b8d-bfe2-0381b44dbf37
