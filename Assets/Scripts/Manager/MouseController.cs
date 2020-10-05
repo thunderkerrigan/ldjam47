@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Doozy.Engine;
+using Doozy.Engine.Soundy;
 using Doozy.Engine.Utils.ColorModels;
 using UnityEngine;
 
@@ -42,11 +44,14 @@ public class MouseController : MonoBehaviour
         {
             _gridManager.ConstructRail(buildableRails[railIndex], selectedRail.coordinate);
             Destroy(shadowRail.gameObject);
+            SoundyManager.Play("Game", "build");
+
         }
         
         if (selectedRail && !selectedRail.isBuildable && (Input.GetMouseButtonDown(0) | Input.GetMouseButtonDown(1)))
         {
             _gridManager.DestroyRail(selectedRail.coordinate);
+            SoundyManager.Play("Game", "deconstruct");
         }
         if (Input.mouseScrollDelta.y != 0)
         {

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Doozy.Engine.Soundy;
 using UnityEngine;
 
 
@@ -17,14 +18,7 @@ public class GameManager : MonoBehaviour
     private bool isRunning = false;
     public event ChronoUpdateHandler OnChronoUpdate;
     public event ScoreUpdateHandler OnScoreUpdate;
-   // public int Score;
-
-    void Start()
-    {
-        
-    }
-
-
+    
     void StartGame()
     {
         isRunning = true;

@@ -1731,7 +1731,7 @@ MonoBehaviour:
   - {fileID: 1201913373293287739, guid: d74f6d3bcdb69b8458b6ddfd266fdd52, type: 3}
   - {fileID: 610745565089746546, guid: 91efa3082d59ee7469bd2673b65522f7, type: 3}
   - {fileID: 5260091613229263770, guid: efd26ae3842d85e479d2059e61f876a4, type: 3}
-  _numberSpawnTile: 2
+  _numberSpawnTile: 1
 --- !u!114 &747122444
 MonoBehaviour:
   m_ObjectHideFlags: 0

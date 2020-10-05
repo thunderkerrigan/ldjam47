@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Doozy.Engine.Soundy;
 using UnityEngine;
 
 public class TrainController : MonoBehaviour
@@ -19,6 +20,7 @@ public class TrainController : MonoBehaviour
     private IEnumerator DeathSwitch()
     {
         _animator.SetTrigger("Death");
+        SoundyManager.Play("Game", "boom", transform.position);
         yield return new WaitForSeconds(2.0f);
         Destroy(this.gameObject);
     }
