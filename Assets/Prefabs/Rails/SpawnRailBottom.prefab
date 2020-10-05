@@ -357,6 +357,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 265c6254d02e9614cb5154cb1def76d5, type: 2}
   isSelected: 0
   isBuildable: 0
+  isProtected: 1
   openDirection: 4
   textMesh: {fileID: 4059502223540614658}
   backgroundTile: {fileID: 3373289031366317164}

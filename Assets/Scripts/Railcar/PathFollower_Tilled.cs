@@ -6,6 +6,8 @@ public delegate void KillMePlease(GameObject train);
 public class PathFollower_Tilled : MonoBehaviour{
 
 	public PathTile  _currentPath;
+    private Rail _currentRail;
+    private Rail _nextRail;
     public float _speed = 5;
 
     private EndOfPathInstruction _endOfPathInstruction = EndOfPathInstruction.Stop;
@@ -26,12 +28,24 @@ public class PathFollower_Tilled : MonoBehaviour{
             if (_absolutDistanceTravelled > _currentPath._pathCreator.path.length ) {
                 if (_nextPath != null)
                 {
+                    if (_currentRail)
+                    {
+                        _currentRail.RemoveTrain(gameObject);
+                    }
+                    _nextRail.AddTrain(gameObject);
+                    _currentRail = _nextRail;
+                    _nextRail = null;
+
                     _absolutDistanceTravelled = _speed * Time.deltaTime;
                     this._currentPath = this._nextPath;
                     this._nextPath = null;
                 }
                 else
                 {
+                    if (_currentRail)
+                    {
+                        _currentRail.RemoveTrain(gameObject);
+                    }
                     if (KillMePleaseHandler != null)
                     {
                         stopMoving = true;
@@ -60,11 +74,13 @@ public class PathFollower_Tilled : MonoBehaviour{
     }
 
 	private void OnTriggerEnter (Collider other) {
-		PathEndTrigger pathEndTrigger = other.gameObject.GetComponent<PathEndTrigger>();
+        PathEndTrigger pathEndTrigger = other.gameObject.GetComponent<PathEndTrigger>();
         //Debug.Log("Trigger " + other.name + " : " + pathEndTrigger.paths[0]._pathWay.ToString() );
         var otherTrain = other.gameObject.GetComponent<TrainController>();
 
-        if (pathEndTrigger != null && pathEndTrigger.paths.Count > 0) {
+        if (pathEndTrigger != null && pathEndTrigger.paths.Count > 0)
+        {
+            
             bool currentPathExistsInTrigger = false;
             foreach (PathTile currentPath in pathEndTrigger.paths) {
                 if (currentPath._pathCreator == this._currentPath._pathCreator) { 
@@ -75,6 +91,7 @@ public class PathFollower_Tilled : MonoBehaviour{
             if (!currentPathExistsInTrigger) {
                 int randomPath = Random.Range(0, pathEndTrigger.paths.Count);
                 this._nextPath = pathEndTrigger.paths[randomPath];
+                _nextRail = pathEndTrigger.GetComponentInParent<Rail>();
             }
             return;
         }

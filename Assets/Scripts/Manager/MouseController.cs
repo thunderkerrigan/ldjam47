@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Doozy.Engine.Utils.ColorModels;
 using UnityEngine;
 
 
@@ -41,6 +42,11 @@ public class MouseController : MonoBehaviour
         {
             _gridManager.ConstructRail(buildableRails[railIndex], selectedRail.coordinate);
             Destroy(shadowRail.gameObject);
+        }
+        
+        if (selectedRail && !selectedRail.isBuildable && Input.GetMouseButtonDown(1))
+        {
+            _gridManager.DestroyRail(selectedRail.coordinate);
         }
         if (Input.mouseScrollDelta.y != 0)
         {
@@ -94,8 +100,6 @@ public class MouseController : MonoBehaviour
                             buildableRails = new List<Rail>();
                         }
                     }
-
-                    
                 }
                 
             }
