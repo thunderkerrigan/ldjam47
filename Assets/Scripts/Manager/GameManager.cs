@@ -9,6 +9,8 @@ using UnityEngine;
 public delegate void ChronoUpdateHandler(TimeSpan span);
 public delegate void ScoreUpdateHandler(int score);
 
+public delegate void DeathUpdateHandler(GameObject train);
+
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +20,7 @@ public class GameManager : MonoBehaviour
     private bool isRunning = false;
     public event ChronoUpdateHandler OnChronoUpdate;
     public event ScoreUpdateHandler OnScoreUpdate;
+    public event DeathUpdateHandler OnDeathUpdate;
     
     void StartGame()
     {
@@ -36,7 +39,13 @@ public class GameManager : MonoBehaviour
         {
            // OnScoreUpdate();
         }
+    }
 
-
+    private void OnDeathTrigger(GameObject train)
+    {
+        if (OnDeathUpdate != null)
+        {
+            OnDeathUpdate(train);
+        }
     }
 }
