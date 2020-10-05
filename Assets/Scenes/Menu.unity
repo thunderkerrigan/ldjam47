@@ -3672,7 +3672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &341522479
 Transform:
   m_ObjectHideFlags: 0
@@ -14685,8 +14685,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1835, y: -424}
-  m_SizeDelta: {x: 1666.9998, y: 50}
+  m_AnchoredPosition: {x: 2142.2, y: -425.4}
+  m_SizeDelta: {x: 2281.403, y: 52.80552}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1056992302
 Animator:
@@ -14727,8 +14727,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ludum Dare 47 - Stuck in a Loop - Joseph Pasqualini - Florian Boulet -
-    Brian Pitet '
+  m_text: ' Ludum Dare 47 - Stuck in a Loop - Joseph Pasqualini - Florian Boulet
+    - Brian Pitet - Romain Pennes '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -14755,7 +14755,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 18.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -29568,7 +29568,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Choo Choo Motherf*ck*r
+  m_text: Choo Choo Loop
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}

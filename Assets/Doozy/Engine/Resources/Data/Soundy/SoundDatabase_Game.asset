@@ -29,6 +29,35 @@ MonoBehaviour:
   Sounds:
   - AudioClip: {fileID: 8300000, guid: 401635723e1e8b541b4d550fa9a7e582, type: 3}
     Weight: 1
+--- !u!114 &-4460558255442500610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6c631d933489d4ca7328a2a5983e10, type: 3}
+  m_Name: Music 1
+  m_EditorClassIdentifier: 
+  DatabaseName: Game
+  SoundName: Music 1
+  IgnoreListenerPause: 1
+  Volume:
+    MinValue: 0
+    MaxValue: 0
+  Pitch:
+    MinValue: 0
+    MaxValue: 0
+  SpatialBlend: 0
+  Loop: 1
+  Mode: 0
+  ResetSequenceAfterInactiveTime: 0
+  SequenceResetTime: 5
+  Sounds:
+  - AudioClip: {fileID: 8300000, guid: bf20100903c6a30409f282373f42dc16, type: 3}
+    Weight: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,14 +78,14 @@ MonoBehaviour:
   - boom
   - build
   - deconstruct
-  - music
+  - Music 1
   - No Sound
   Database:
   - {fileID: 1579219941435841345}
   - {fileID: 6487311601353968690}
   - {fileID: -6318618571201161789}
   - {fileID: 4078819636931174692}
-  - {fileID: 6820793093253386422}
+  - {fileID: -4460558255442500610}
 --- !u!114 &1579219941435841345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,33 +170,4 @@ MonoBehaviour:
   SequenceResetTime: 5
   Sounds:
   - AudioClip: {fileID: 8300000, guid: c74bd205a0197974ea0431a2eb7282ef, type: 3}
-    Weight: 1
---- !u!114 &6820793093253386422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f6c631d933489d4ca7328a2a5983e10, type: 3}
-  m_Name: music
-  m_EditorClassIdentifier: 
-  DatabaseName: Game
-  SoundName: music
-  IgnoreListenerPause: 1
-  Volume:
-    MinValue: 0
-    MaxValue: 0
-  Pitch:
-    MinValue: 0
-    MaxValue: 0
-  SpatialBlend: 0
-  Loop: 1
-  Mode: 0
-  ResetSequenceAfterInactiveTime: 0
-  SequenceResetTime: 5
-  Sounds:
-  - AudioClip: {fileID: 8300000, guid: 458e46d3b053b8749b91e17979d44316, type: 3}
     Weight: 1
