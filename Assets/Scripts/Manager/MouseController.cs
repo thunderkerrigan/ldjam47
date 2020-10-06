@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Doozy.Engine;
+using Doozy.Engine.Soundy;
+using Doozy.Engine.Utils.ColorModels;
 using UnityEngine;
 
 
@@ -37,10 +40,18 @@ public class MouseController : MonoBehaviour
 
     void Update()
     {
-        if (shadowRail && Input.GetMouseButtonDown(0))
+        if (shadowRail && (Input.GetMouseButtonDown(0) | Input.GetMouseButtonDown(1)))
         {
             _gridManager.ConstructRail(buildableRails[railIndex], selectedRail.coordinate);
             Destroy(shadowRail.gameObject);
+            SoundyManager.Play("Game", "build");
+
+        }
+        
+        if (selectedRail && !selectedRail.isBuildable && (Input.GetMouseButtonDown(0) | Input.GetMouseButtonDown(1)))
+        {
+            _gridManager.DestroyRail(selectedRail.coordinate);
+            SoundyManager.Play("Game", "deconstruct");
         }
         if (Input.mouseScrollDelta.y != 0)
         {
@@ -81,9 +92,12 @@ public class MouseController : MonoBehaviour
                     railIndex = 0;
                     selectedRail.isSelected = false;
                     selectedRail = rail;
-                    if (selectedRail.isBuildable)
+                    if (!selectedRail.isProtected)
                     {
                         selectedRail.isSelected = true;
+                    }
+                    if (selectedRail.isBuildable)
+                    {
                         
                         if (availablePosition != PositionEnum.None)
                         {
@@ -94,8 +108,6 @@ public class MouseController : MonoBehaviour
                             buildableRails = new List<Rail>();
                         }
                     }
-
-                    
                 }
                 
             }

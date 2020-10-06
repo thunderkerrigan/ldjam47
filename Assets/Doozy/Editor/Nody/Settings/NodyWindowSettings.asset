@@ -39,7 +39,6 @@ MonoBehaviour:
   CurrentGraph: {fileID: 11400000, guid: f6b5df97bd438ba4094994f2585ab60c, type: 2}
   RecentlyOpenedGraphs:
   - {fileID: 11400000, guid: f6b5df97bd438ba4094994f2585ab60c, type: 2}
-  - {fileID: 11400000, guid: dff2d3101c04d6f43bc385f92424777e, type: 2}
   CopiedNodes: []
   DeletedNodes:
   - {fileID: -4443685856323479761, guid: f6b5df97bd438ba4094994f2585ab60c, type: 2}
@@ -53,7 +52,19 @@ MonoBehaviour:
   - {fileID: -4365449673171569364, guid: f6b5df97bd438ba4094994f2585ab60c, type: 2}
   - {fileID: -7437660048568399934, guid: f6b5df97bd438ba4094994f2585ab60c, type: 2}
   - {fileID: -1583432944714832377, guid: f6b5df97bd438ba4094994f2585ab60c, type: 2}
-  SelectedNodes: []
+  - {fileID: -4048486758505219225, guid: f6b5df97bd438ba4094994f2585ab60c, type: 2}
+  - {fileID: 2856257491640999046, guid: f6b5df97bd438ba4094994f2585ab60c, type: 2}
+  - {fileID: 1833724695832376817, guid: f6b5df97bd438ba4094994f2585ab60c, type: 2}
+  - {fileID: 4595644286348477848, guid: f6b5df97bd438ba4094994f2585ab60c, type: 2}
+  - {fileID: 3879242093202522181, guid: f6b5df97bd438ba4094994f2585ab60c, type: 2}
+  - {fileID: 5057521719709110988, guid: f6b5df97bd438ba4094994f2585ab60c, type: 2}
+  - {fileID: -5936038150231667989, guid: f6b5df97bd438ba4094994f2585ab60c, type: 2}
+  - {fileID: -1054202307108046163, guid: f6b5df97bd438ba4094994f2585ab60c, type: 2}
+  - {fileID: 719506376007134637, guid: f6b5df97bd438ba4094994f2585ab60c, type: 2}
+  - {fileID: 6637995269356782607, guid: f6b5df97bd438ba4094994f2585ab60c, type: 2}
+  - {fileID: -7035310734253558785, guid: f6b5df97bd438ba4094994f2585ab60c, type: 2}
+  SelectedNodes:
+  - {fileID: 4135486003279959260, guid: f6b5df97bd438ba4094994f2585ab60c, type: 2}
   GraphTabs:
   - IsRootTab: 1
     Graph: {fileID: 11400000, guid: f6b5df97bd438ba4094994f2585ab60c, type: 2}
@@ -63,12 +74,12 @@ MonoBehaviour:
     SelectedNodes: []
     DeletedNodes: []
   CurrentView: 1
-  CurrentPanOffset: {x: 1334.7539, y: 183.25304}
+  CurrentPanOffset: {x: 915.5, y: 250.5}
   DefaultPanOffset: {x: 0, y: 0}
   IsDirty: 0
   SaveCurrentGraphWithControlS: 1
   CurrentDotAnimationSpeed: 0.6
-  CurrentZoom: 0.6
+  CurrentZoom: 1
   DefaultDotAnimationSpeed: 0.6
   DefaultZoom: 1
   ShowNodeNotes: 1
