@@ -1,5 +1,4 @@
 ﻿using Doozy.Engine.Extensions;
-using Nectunia.Utility;
 using PathCreation;
 using UnityEngine;
 
@@ -11,11 +10,6 @@ public class SpawnerPathFollower : MonoBehaviour {
     public PathCreator  _pathCreator;
 	private Vector3		_startPosition;
 
-	private CountDown   _nextSpawnTime;
-	public CountDown NextSpawnTime {
-		get => this._nextSpawnTime;
-		set => this._nextSpawnTime = value;
-	}
 
 	private void OnEnable () {	
 		// Check if the train prefab have a PathFollowerComponent
@@ -45,11 +39,9 @@ public class SpawnerPathFollower : MonoBehaviour {
 			followerComponent._currentPath._pathWay = PathTile.PathWay.Start;
 			followerComponent._speed = trainSpeed;
 			newTrain.SetActive(true);
-			this._nextSpawnTime = null;
 
 			return newTrain;
 		}
-		this._nextSpawnTime = null;
 
 		return null;
 	}
