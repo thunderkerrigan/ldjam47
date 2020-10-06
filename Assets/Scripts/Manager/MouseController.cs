@@ -13,7 +13,7 @@ public class MouseController : MonoBehaviour
     private List<Rail> buildableRails = new List<Rail>();
     private int railIndex = 0;
     public Rail shadowRail;
-    
+
     Ray ray;
     RaycastHit hitData;
 
@@ -40,6 +40,7 @@ public class MouseController : MonoBehaviour
 
     void Update()
     {
+        
         if (shadowRail && (Input.GetMouseButtonDown(0) | Input.GetMouseButtonDown(1)))
         {
             _gridManager.ConstructRail(buildableRails[railIndex], selectedRail.coordinate);
@@ -53,6 +54,30 @@ public class MouseController : MonoBehaviour
             _gridManager.DestroyRail(selectedRail.coordinate);
             SoundyManager.Play("Game", "deconstruct");
         }
+        if (Input.mouseScrollDelta.y != 0)
+        {
+            railIndex += Mathf.RoundToInt(Input.mouseScrollDelta.y);
+            if (railIndex < 0)
+            {
+                railIndex = buildableRails.Count - 1;
+            }
+            if ( railIndex >= buildableRails.Count)
+            {
+                railIndex = 0;
+            }
+            GenerateShadowRail();
+        }
+        if (Input.GetButtonDown("Jump"))
+        {
+            railIndex += 1;
+
+            if ( railIndex >= buildableRails.Count)
+            {
+                railIndex = 0;
+            }
+            GenerateShadowRail();
+        }
+        
         if (Input.mouseScrollDelta.y != 0)
         {
             railIndex += Mathf.RoundToInt(Input.mouseScrollDelta.y);

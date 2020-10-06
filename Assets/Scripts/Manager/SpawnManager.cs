@@ -44,8 +44,16 @@ public class SpawnManager : MonoBehaviour{
 			yield return new WaitForSeconds(_spawnTimeSeconde);
 			if (_trainPrefabs.Count > 0 && _spawnList.Count >0)
 			{
-				var randomTrain = _trainPrefabs[Random.Range(0, _trainPrefabs.Count - 1)];
-				var randomSpawner = _spawnList[Random.Range(0, _spawnList.Count - 1)];
+				var randomTrain = _trainPrefabs[Random.Range(0, _trainPrefabs.Count)];
+				var randSpawnerId = Random.Range(0, _spawnList.Count);
+				var randSpawnerTest = Random.Range(0,30);
+
+				var randomSpawner = _spawnList[randSpawnerId];
+				Debug.Log("spawner "+randSpawnerId);
+				Debug.Log("spawner length"+_spawnList.Count);
+				Debug.Log("test "+randSpawnerTest);
+
+				
 				var newTrain = randomSpawner.GetComponent<SpawnerPathFollower>().Spawn(randomTrain); 
 				AddTrainToList(newTrain);
 			}			
@@ -69,6 +77,11 @@ public class SpawnManager : MonoBehaviour{
 
 	public void StopSpawnList()
 	{
+		if (_spawnCoroutine != null)
+		{
+			StopCoroutine(_spawnCoroutine);
+			_spawnCoroutine = null;
+		}
 		foreach (var _train in spawnedTrains)
 		{
 			var _pathFollowerTilled = _train.GetComponent<PathFollower_Tilled>();
@@ -79,12 +92,8 @@ public class SpawnManager : MonoBehaviour{
 		spawnedTrains = new List<GameObject>();
 
 		_spawnList = new List<Rail>();
+		NotifySpawn();
 
-		if (_spawnCoroutine != null)
-		{
-			StopCoroutine(_spawnCoroutine);
-			_spawnCoroutine = null;
-		}
 	}
 
 	private void AddTrainToList(GameObject train)

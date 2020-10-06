@@ -1744,7 +1744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 706b254a437e8a842951abddd16bf4de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnTimeSeconde: 5
+  _spawnTimeSeconde: 6
   _firstSpawnTimeSeconde: 5
   _trainPrefabs:
   - {fileID: 5991687195576547552, guid: 91916b5286cfebd4f899f45b5ce9d3c7, type: 3}
@@ -2039,6 +2039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1cb11fafab9ed4ba3aa71589983b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraSpeed: 8
 --- !u!1 &857111581
 GameObject:
   m_ObjectHideFlags: 0

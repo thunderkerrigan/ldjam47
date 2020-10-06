@@ -2917,7 +2917,6 @@ MonoBehaviour:
     PresetName: 
   TargetLabel: 2
   TextLabel: {fileID: 0}
-  TextMeshProLabel: {fileID: 628782213}
 --- !u!114 &165161862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6007,7 +6006,6 @@ MonoBehaviour:
     PresetName: 
   TargetLabel: 2
   TextLabel: {fileID: 0}
-  TextMeshProLabel: {fileID: 421566341}
 --- !u!114 &342606176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11311,7 +11309,6 @@ MonoBehaviour:
     PresetName: 
   TargetLabel: 2
   TextLabel: {fileID: 0}
-  TextMeshProLabel: {fileID: 428584785}
 --- !u!114 &651495334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17816,7 +17813,6 @@ MonoBehaviour:
     PresetName: 
   TargetLabel: 2
   TextLabel: {fileID: 0}
-  TextMeshProLabel: {fileID: 398404702}
 --- !u!114 &1239523281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20231,7 +20227,6 @@ MonoBehaviour:
     PresetName: 
   TargetLabel: 2
   TextLabel: {fileID: 0}
-  TextMeshProLabel: {fileID: 1914977750}
 --- !u!114 &1264050489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20677,7 +20672,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 68.7
+  m_fontSize: 55.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -25647,7 +25642,6 @@ MonoBehaviour:
     PresetName: 
   TargetLabel: 2
   TextLabel: {fileID: 0}
-  TextMeshProLabel: {fileID: 1493124678}
 --- !u!114 &1756299948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28128,7 +28122,6 @@ MonoBehaviour:
     PresetName: 
   TargetLabel: 2
   TextLabel: {fileID: 0}
-  TextMeshProLabel: {fileID: 396855478}
 --- !u!114 &1803408469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31934,7 +31927,6 @@ MonoBehaviour:
     PresetName: 
   TargetLabel: 2
   TextLabel: {fileID: 0}
-  TextMeshProLabel: {fileID: 1518622285}
 --- !u!114 &2126962978
 MonoBehaviour:
   m_ObjectHideFlags: 0

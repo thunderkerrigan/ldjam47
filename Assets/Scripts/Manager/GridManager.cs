@@ -184,6 +184,7 @@ public class GridManager : MonoBehaviour
             }
         }
         gridItems = new List<List<Rail>>(gridSize);
+        _spawnTiles = new List<Rail>();
     }
 
     private void DefineSpawnTile () {
