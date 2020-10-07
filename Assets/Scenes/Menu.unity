@@ -8030,7 +8030,7 @@ MonoBehaviour:
       SoundData:
         SoundSource: 0
         DatabaseName: Example Slides
-        SoundName: Interface Change 4
+        SoundName: Interface Change 2
         AudioClip: {fileID: 0}
         OutputAudioMixerGroup: {fileID: 0}
     PresetCategory: Uncategorized
@@ -14998,7 +14998,7 @@ MonoBehaviour:
       SoundData:
         SoundSource: 0
         DatabaseName: Example Slides
-        SoundName: Interface Swipe 1
+        SoundName: Interface Change 2
         AudioClip: {fileID: 0}
         OutputAudioMixerGroup: {fileID: 0}
     PresetCategory: Uncategorized
@@ -20672,7 +20672,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55.9
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
