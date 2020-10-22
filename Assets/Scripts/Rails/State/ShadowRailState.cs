@@ -6,16 +6,21 @@ public class ShadowRailState : RailBaseState
 {
     public override void EnterState(Rail rail)
     {
-        throw new System.NotImplementedException();
+        return;
     }
 
-    public override void Update(Rail rail)
+    public override void Update(Rail rail, GameObject rayCastedGameObject)
     {
-        throw new System.NotImplementedException();
+        rail.isShadowOf.DelegateUpdate(rayCastedGameObject);
     }
 
-    public override Rail HandleSelection(Rail rail)
+    public override void HandleScroll(Rail rail, int offset)
     {
-        throw new System.NotImplementedException();
+       return;
+    }
+
+    public override void HandleClick(Rail rail)
+    {
+        return;
     }
 }

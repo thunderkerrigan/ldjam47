@@ -29,6 +29,7 @@ public class SelectionTile : MonoBehaviour
 
     private void SetMaterial(PositionEnum access)
     {
+        Debug.Log("coucou");
         if (access == PositionEnum.None)
         {
             hintRenderer.material = BadMaterial;

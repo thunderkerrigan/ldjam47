@@ -6,16 +6,27 @@ public class ConstructedRailState : RailBaseState
 {
     public override void EnterState(Rail rail)
     {
-        throw new System.NotImplementedException();
+        /*Debug.Log("ConstructedRailState"+ rail.coordinate.Row +":" + rail.coordinate.Column);*/
+        rail.SetText("ConstructedRailState");
+        rail.isSelected = false;
+        rail.isBuildable = false;
     }
 
-    public override void Update(Rail rail)
+    public override void Update(Rail rail, GameObject rayCastedGameObject)
     {
-        throw new System.NotImplementedException();
+        if (rayCastedGameObject == rail.gameObject)
+        {
+            rail.TransitionToState(rail.SelectedConstructedState);;
+        }
     }
 
-    public override Rail HandleSelection(Rail rail)
+    public override void HandleScroll(Rail rail, int offset)
     {
-        throw new System.NotImplementedException();
+       return;
+    }
+
+    public override void HandleClick(Rail rail)
+    {
+        return;
     }
 }

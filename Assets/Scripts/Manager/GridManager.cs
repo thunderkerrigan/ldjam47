@@ -153,7 +153,7 @@ public class GridManager : MonoBehaviour
         if (!targetRail.isProtected)
         {
             var gridPosition = targetRail.gameObject.transform.position;
-            Destroy(targetRail.gameObject);
+            targetRail.SelfDestroy();
             var emptyRail = filterSinglePrefabsForOrientation(PositionEnum.None);
             var newRail = MakeRail(emptyRail, PositionEnum.None, gridPosition, position);
             gridItems[position.Row][position.Column] = newRail;
@@ -168,7 +168,7 @@ public class GridManager : MonoBehaviour
         {
             var gridPosition = targetRail.gameObject.transform.position;
             targetRail.OnRequestOpenRoutesHandler -= FetchNeighborRails;
-            Destroy(targetRail.gameObject);
+            targetRail.SelfDestroy();
             var newRail = MakeRail(requestedRail, PositionEnum.None, gridPosition, position);
             gridItems[position.Row][position.Column] = newRail;
         }

@@ -1444,6 +1444,7 @@ MonoBehaviour:
   openDirection: 1
   textMesh: {fileID: 5062588195777662703}
   backgroundTile: {fileID: 5820768823915949185}
+  gridManager: {fileID: 0}
 --- !u!65 &2611619542159247064
 BoxCollider:
   m_ObjectHideFlags: 0

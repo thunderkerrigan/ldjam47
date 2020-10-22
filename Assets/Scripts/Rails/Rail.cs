@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using HutongGames.PlayMaker;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -30,11 +31,15 @@ public struct Coordinate
 public delegate PositionEnum RequestOpenRoutesHandler(Coordinate coordinate);
 public delegate void ReceiveOpenRouteHandler(PositionEnum directions);
 
+public delegate void OnDeathHandler();
+
 
 public class Rail : MonoBehaviour
 {
     public event RequestOpenRoutesHandler OnRequestOpenRoutesHandler;
     public event ReceiveOpenRouteHandler OnReceiveOpenRouteHandler;
+    
+    public event OnDeathHandler OnDeathHandler;
 
     public Coordinate coordinate;    
     [SerializeField] public GameObject selectionText;
@@ -45,6 +50,8 @@ public class Rail : MonoBehaviour
     public PositionEnum openDirection = PositionEnum.None;
     public TextMeshPro textMesh;
     public MeshRenderer backgroundTile;
+    public GridManager gridManager;
+    public MouseController mouseController;
     
     private List<GameObject> _trainsOnRail = new List<GameObject>(); 
 
@@ -52,23 +59,61 @@ public class Rail : MonoBehaviour
 
     public readonly BuildableRailState BuildableState = new BuildableRailState();
     public readonly ConstructedRailState ConstructedState = new ConstructedRailState();
-    public  readonly ShadowRailState ShadowState = new ShadowRailState();
-    
-    protected RailBaseState CurrentState;
+    public  readonly SelectedBuildableRailState SelectedBuildableState = new SelectedBuildableRailState();
+    public  readonly SelectedConstructedRailState SelectedConstructedState = new SelectedConstructedRailState();
+    public readonly  ProtectedRailState ProtectedState = new ProtectedRailState();
+    public readonly  ShadowRailState ShadowState = new ShadowRailState();
+
+    public Rail isShadowOf;
+    private RailBaseState _currentState;
 
     #endregion
+
+    private void Awake()
+    {
+        var id = Random.Range(0, backgroundMaterials.Count);
+        backgroundTile.material = backgroundMaterials[id];
+        gridManager = GameObject.FindGameObjectWithTag("GridManager").GetComponent<GridManager>();
+        mouseController = GameObject.FindGameObjectWithTag("MouseController").GetComponent<MouseController>();
+        mouseController.OnScroll += HandleScroll;
+        mouseController.OnClick += HandleClick;
+        
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        var id = Random.Range(0, backgroundMaterials.Count);
-        backgroundTile.material = backgroundMaterials[id];
+        if (isShadowOf != null)
+        {
+            TransitionToState(ShadowState);
+            return;
+        }
+        if (isProtected)
+        {
+            TransitionToState(ProtectedState);
+            return;
+        }
+        if (openDirection == PositionEnum.None)
+        {
+            TransitionToState(BuildableState);
+        }
+        else
+        {
+            TransitionToState(ConstructedState);
+        }
     }
 
+    
+    public void TransitionToState(RailBaseState state)
+    {
+        _currentState = state;
+        _currentState.EnterState(this);
+    }
     public void SetText(string text)
     {
         textMesh.SetText(text);
     }
+
 
     // Update is called once per frame
     void Update()
@@ -76,10 +121,24 @@ public class Rail : MonoBehaviour
         // CurrentState.Update(this);
         if (selectionText.activeSelf != isSelected)
         {
-            
-           selectionText.SetActive(isSelected);
+            selectionText.SetActive(isSelected);
             GetOpenRoutes();
         };
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (!isProtected)
+        {
+            if (Physics.Raycast(ray, out var _hitData, 1000))
+            {
+                var selectedObject = _hitData.transform.gameObject;
+                _currentState.Update(this, selectedObject);
+            }
+        }
+    }
+
+    public void DelegateUpdate(GameObject raycastedGameObject)
+    {
+        _currentState.Update(this, raycastedGameObject);
     }
 
     public void AddTrain(GameObject train)
@@ -92,11 +151,16 @@ public class Rail : MonoBehaviour
         _trainsOnRail.Remove(train);
         isProtected = _trainsOnRail.Count> 0;
     }
+    
 
-    public Rail SelectRail()
+    public void HandleScroll(int offset)
     {
-       //return CurrentState.HandleSelection();
-       return this;
+        _currentState.HandleScroll(this,offset);
+    }
+
+    public void HandleClick()
+    {
+        _currentState.HandleClick(this);
     }
     
     public PositionEnum GetOpenRoutes()
@@ -112,5 +176,16 @@ public class Rail : MonoBehaviour
         }
 
         return PositionEnum.None;
+    }
+
+    public void SelfDestroy()
+    {
+        mouseController.OnScroll -= HandleScroll;
+        mouseController.OnClick -= HandleClick;
+        if (OnDeathHandler != null)
+        {
+            OnDeathHandler();
+        }
+        Destroy(gameObject);
     }
 }

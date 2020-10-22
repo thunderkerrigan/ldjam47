@@ -46,18 +46,18 @@ MonoBehaviour:
   editorData:
     _bezierPath:
       points:
-      - {x: -0.2887534, y: 0.16098797, z: -0.0001487732}
-      - {x: 0.50712836, y: 0.15566123, z: 0.0008277893}
-      - {x: -0.4478413, y: 0.15811837, z: -0.0001487732}
-      - {x: 0.7120606, y: 0.15874791, z: -0.0001487732}
+      - {x: -0.2887534, y: 0.16098797, z: 0}
+      - {x: 0.50712836, y: 0.15566123, z: 0}
+      - {x: -0.4478413, y: 0.15811837, z: 0}
+      - {x: 0.7120606, y: 0.15874791, z: 0}
       isClosed: 0
       space: 0
       controlMode: 0
       autoControlLength: 0.3
       boundsUpToDate: 0
       bounds:
-        m_Center: {x: 0, y: 0, z: 0}
-        m_Extent: {x: 0, y: 0, z: 0}
+        m_Center: {x: 0.21165359, y: 0.15931079, z: 0.0000682407}
+        m_Extent: {x: 0.500407, y: 0.0016771853, z: 0.00021701389}
       perAnchorNormalsAngle:
       - 0
       - 0
@@ -72,7 +72,7 @@ MonoBehaviour:
     displayAnchorPoints: 1
     displayControlPoints: 1
     bezierHandleScale: 0
-    globalDisplaySettingsFoldout: 0
+    globalDisplaySettingsFoldout: 1
     keepConstantHandleSize: 0
     showNormalsInVertexMode: 0
     showBezierPathInVertexMode: 0
@@ -786,6 +786,7 @@ MonoBehaviour:
   openDirection: 3
   textMesh: {fileID: 5942632026847045014}
   backgroundTile: {fileID: 4971432016212363256}
+  gridManager: {fileID: 0}
 --- !u!65 &3460949591730744737
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FlythroughCam
   - GridManager
+  - MouseController
   layers:
   - Default
   - TransparentFX

@@ -1,0 +1,228 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PathCreator
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: 63d0d4af405c67a42ad5d276683559f7,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.points.Array.size
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.points.Array.data[0].x
+    value: -0.2887534
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.points.Array.data[0].y
+    value: 0.16098797
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.points.Array.data[0].z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.points.Array.data[1].x
+    value: 0.50712836
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.points.Array.data[1].y
+    value: 0.15566123
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.points.Array.data[1].z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.points.Array.data[2].x
+    value: -0.4478413
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.points.Array.data[2].y
+    value: 0.15811837
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.points.Array.data[2].z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.points.Array.data[3].x
+    value: 0.7120606
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.points.Array.data[3].y
+    value: 0.15874791
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.points.Array.data[3].z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.isClosed
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.space
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.controlMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.autoControlLength
+    value: 0.3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.boundsUpToDate
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.bounds.m_Center.x
+    value: 0.21165359
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.bounds.m_Center.y
+    value: 0.15931079
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.bounds.m_Center.z
+    value: 0.0000682407
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.bounds.m_Extent.x
+    value: 0.500407
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.bounds.m_Extent.y
+    value: 0.0016771853
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.bounds.m_Extent.z
+    value: 0.00021701389
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.perAnchorNormalsAngle.Array.size
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.perAnchorNormalsAngle.Array.data[0]
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.perAnchorNormalsAngle.Array.data[1]
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.globalNormalsAngle
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData._bezierPath.flipNormals
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData.vertexPathUpToDate
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData.vertexPathMaxAngleError
+    value: 0.3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData.vertexPathMinVertexSpacing
+    value: 0.01
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData.showTransformTool
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData.showPathBounds
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData.showPerSegmentBounds
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData.displayAnchorPoints
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData.displayControlPoints
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData.bezierHandleScale
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData.globalDisplaySettingsFoldout
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData.keepConstantHandleSize
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData.showNormalsInVertexMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData.showBezierPathInVertexMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData.showDisplayOptions
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData.showPathOptions
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData.showVertexPathDisplayOptions
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData.showVertexPathOptions
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData.showNormals
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData.showNormalsHelpInfo
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: editorData.tabIndex
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: initialized
+    value: 1
+    objectReference: {fileID: 0}
+  m_ExcludedProperties: []

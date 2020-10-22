@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,21 +7,27 @@ public class BuildableRailState : RailBaseState
 {
     public override void EnterState(Rail rail)
     {
-        throw new System.NotImplementedException();
+        /*Debug.Log("BuildableRailState"+ rail.coordinate.Row +":" + rail.coordinate.Column);*/
+        rail.SetText("BuildableRailState");
+        rail.isBuildable = true;
+        rail.isSelected = false;
     }
 
-    public override void Update(Rail rail)
+    public override void Update(Rail rail, GameObject rayCastedGameObject)
     {
-        if (rail.selectionText.activeSelf != rail.isSelected)
+        if (rayCastedGameObject == rail.gameObject)
         {
-            
-            rail.selectionText.SetActive(rail.isSelected);
-            rail.GetOpenRoutes();
-        };
+            rail.TransitionToState(rail.SelectedBuildableState);
+        }
     }
 
-    public override Rail HandleSelection(Rail rail)
+    public override void HandleScroll(Rail rail, int offset)
     {
-        throw new System.NotImplementedException();
+        return;
+    }
+
+    public override void HandleClick(Rail rail)
+    {
+        return;
     }
 }
